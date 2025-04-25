@@ -95,9 +95,9 @@ type LangLayoutProps = {
   children: ReactNode;
   params: { lang: string };
 };
-export default async function LangLayout({ children, params }: LangLayoutProps) {
+export default function LangLayout({ children, params }: LangLayoutProps) {
   // BUG remove await async if flashing is major
-  const { lang } = await params;
+  const { lang } = params;
   const metadata = getMetadata(lang);
   const dir = lang === "fa" ? "rtl" : "ltr";
 
