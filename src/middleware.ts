@@ -44,49 +44,36 @@ export function middleware (request: NextRequest) {
     return NextResponse.next()
   }
 
-  // Handle /en → redirect to / if language is not 'en-US'
-  if (pathname.startsWith('/en')) {
-    if (cookieLang !== 'en-US') {
-      const response = NextResponse.redirect(
-        new URL(pathname.replace(/^\/en/, '') || '/', request.url)
-      )
-      response.cookies.set('language', 'en-US', { path: '/', maxAge: 31536000 })
+  // If already on a locale route (/fa or /en), just update cookie if needed (no redirect)
+  if (pathname.startsWith('/fa') || pathname.startsWith('/en')) {
+    const expectedLang = pathname.startsWith('/fa') ? 'fa' : 'en-US'
+
+    // Only update cookie if it differs from the route
+    if (cookieLang !== expectedLang) {
+      const response = NextResponse.next()
+      response.cookies.set('language', expectedLang, {
+        path: '/',
+        maxAge: 31536000
+      })
       return response
     }
-    return NextResponse.next() // No change needed if the cookie already matches
+
+    return NextResponse.next()
   }
 
-  // Handle /fa → redirect to /fa if language is not 'fa'
-  if (pathname.startsWith('/fa')) {
-    if (cookieLang !== 'fa') {
-      const response = NextResponse.redirect(
-        new URL(pathname.replace(/^\/fa/, '') || '/', request.url)
-      )
-      response.cookies.set('language', 'fa', { path: '/', maxAge: 31536000 })
-      return response
-    }
-    return NextResponse.next() // No change needed if the cookie already matches
-  }
-
-  // For all other paths, determine the locale based on the cookie or browser language
+  // If no locale in path, detect best match and redirect
   const detectedLocale = getLocale(request)
 
-  // Redirect to the correct locale version based on detected language
-  if (detectedLocale === 'fa' && !pathname.startsWith('/fa')) {
-    const newUrl = new URL(`/fa${pathname}`, request.url)
-    const response = NextResponse.redirect(newUrl)
-    response.cookies.set('language', 'fa', { path: '/', maxAge: 31536000 })
-    return response
-  } else if (detectedLocale === 'en-US' && !pathname.startsWith('/en')) {
-    const newUrl = new URL(`/en${pathname}`, request.url)
-    const response = NextResponse.redirect(newUrl)
-    response.cookies.set('language', 'en-US', { path: '/', maxAge: 31536000 })
-    return response
-  }
-
-  return NextResponse.next() // Continue processing if nothing matches
+  const newUrl = new URL(`/${detectedLocale}${pathname}`, request.url)
+  const response = NextResponse.redirect(newUrl)
+  response.cookies.set('language', detectedLocale, {
+    path: '/',
+    maxAge: 31536000
+  })
+  return response
 }
 
+// Middleware matcher config: exclude certain paths from being handled
 export const config = {
-  matcher: ['/((?!_next|fa|api|favicon.ico|fonts|images).*)', '/en/:path*']
+  matcher: ['/((?!_next|fa|en|api|favicon.ico|fonts|images).*)']
 }
