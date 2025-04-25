@@ -32,7 +32,10 @@ const shabnam = localFont({
   variable: "--font-shabnam",
   display: "swap",
 });
-
+interface OGImage {
+  url: string;
+  alt?: string;
+}
 const getMetadata = (lang: string): Metadata => {
   const isEnglish = lang === "en";
 
@@ -79,14 +82,7 @@ const getMetadata = (lang: string): Metadata => {
       description: isEnglish
         ? "Discover the portfolio of Abolfazl Chaman, a seasoned Web Developer and Software Engineer with over 5 years of experience delivering high-performance, scalable web applications. Specializing in React, Next.js, TypeScript, and modern full-stack web and software development. Check out my resume and let's discuss how I can help improve your team or project output."
         : "پورتفولیوی ابوالفضل چمن، توسعه‌دهنده وب و مهندس نرم‌افزار با بیش از ۵ سال تجربه در ارائه اپلیکیشن‌های وب با عملکرد بالا و مقیاس‌پذیر. متخصص در ری‌اکت، نکست‌جی‌اس، تایپ‌اسکریپت و توسعه وب و نرم‌افزار فول‌استک مدرن. رزومه من را مشاهده کنید و با من در مورد بهبود عملکرد تیم یا خروجی پروژه خود ارتباط برقرار کنید.",
-      images: [
-        {
-          url: "https://www.abolfazlchaman.ir/images/AbolfazlChamanFormal.jpg",
-          alt: isEnglish
-            ? "Abolfazl Chaman - Web Developer, Software Engineer and Software Consultant"
-            : "ابوالفضل چمن - توسعه‌دهنده، وب مهندس نرم‌افزار و مشاور نرم‌افزار",
-        },
-      ],
+      images: "https://www.abolfazlchaman.ir/images/AbolfazlChamanFormal.jpg",
     },
     alternates: {
       canonical: isEnglish
@@ -147,10 +143,10 @@ export default async function LangLayout({ children, params }: LangLayoutProps) 
             />
           ))}
 
-        <link
+        {/* <link
           rel="canonical"
           href={metadata.canonical as string}
-        />
+        /> */}
         {/* Meta Tags */}
         <meta
           name="description"
@@ -170,11 +166,20 @@ export default async function LangLayout({ children, params }: LangLayoutProps) 
         />
         <meta
           property="og:image"
-          content={metadata.openGraph?.images?.[0]?.url}
+          content={
+            Array.isArray(metadata.openGraph?.images)
+              ? metadata.openGraph?.images[0] instanceof Object
+                ? (metadata.openGraph?.images[0] as OGImage).url
+                : (metadata.openGraph?.images[0] as string)
+              : metadata.openGraph?.images instanceof Object
+              ? (metadata.openGraph?.images as OGImage).url
+              : (metadata.openGraph?.images as string)
+          }
         />
+
         <meta
           property="og:url"
-          content={metadata.openGraph?.url}
+          content={metadata.openGraph?.url?.toString()}
         />
         <meta
           name="twitter:title"
@@ -186,7 +191,7 @@ export default async function LangLayout({ children, params }: LangLayoutProps) 
         />
         <meta
           name="twitter:image"
-          content={metadata.twitter?.images?.[0]?.url}
+          content={metadata.twitter?.images?.toString()}
         />
         <meta
           property="og:locale"
