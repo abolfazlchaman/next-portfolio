@@ -88,7 +88,11 @@ const getMetadata = (lang: string): Metadata => {
         },
       ],
     },
-    canonical: isEnglish ? "https://www.abolfazlchaman.ir/en" : "https://www.abolfazlchaman.ir/fa",
+    alternates: {
+      canonical: isEnglish
+        ? "https://www.abolfazlchaman.ir/en"
+        : "https://www.abolfazlchaman.ir/fa",
+    },
   };
 };
 
@@ -131,16 +135,18 @@ export default async function LangLayout({ children, params }: LangLayoutProps) 
           href="/site.webmanifest"
         />
         {/* Alternate & Canonical */}
-        <link
-          rel="alternate"
-          href="https://www.abolfazlchaman.ir/en"
-          hrefLang="en"
-        />
-        <link
-          rel="alternate"
-          href="https://www.abolfazlchaman.ir/fa"
-          hrefLang="fa"
-        />
+        {/* potential BUG */}
+        {["en", "fa"]
+          .filter((locale) => locale !== lang)
+          .map((locale) => (
+            <link
+              key={locale}
+              rel="alternate"
+              href={`https://www.abolfazlchaman.ir/${locale}`}
+              hrefLang={locale}
+            />
+          ))}
+
         <link
           rel="canonical"
           href={metadata.canonical as string}
