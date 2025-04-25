@@ -94,11 +94,12 @@ const getMetadata = (lang: string): Metadata => {
 
 interface LangLayoutProps {
   children: ReactNode;
-  params: Promise<{ lang: string }>;
+  params: { lang: string };
 }
 
-export default async function LangLayout({ children, params }: LangLayoutProps) {
-  const { lang } = await params;
+export default function LangLayout({ children, params }: LangLayoutProps) {
+  // bugged flashing
+  const { lang } = params;
   const metadata = getMetadata(lang);
   const dir = lang === "fa" ? "rtl" : "ltr";
 
