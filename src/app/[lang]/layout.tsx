@@ -91,7 +91,7 @@ const getMetadata = (lang: string): Metadata => {
   };
 };
 
-export default async function LangLayout({
+export default function LangLayout({
   children,
   params,
 }: {
@@ -99,7 +99,7 @@ export default async function LangLayout({
   params: { lang: string };
 }) {
   // BUG remove await async if flashing is major
-  const { lang } = await params;
+  const { lang } = params;
   const metadata = getMetadata(lang);
   const dir = lang === "fa" ? "rtl" : "ltr";
 
