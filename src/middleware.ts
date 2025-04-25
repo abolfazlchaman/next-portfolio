@@ -38,7 +38,8 @@ export function middleware (request: NextRequest) {
     pathname.startsWith('/_next') ||
     pathname.startsWith('/favicon.ico') ||
     pathname.startsWith('/images') ||
-    pathname.startsWith('/fonts')
+    pathname.startsWith('/fonts') ||
+    pathname === '/site.webmanifest'
   ) {
     return NextResponse.next()
   }
