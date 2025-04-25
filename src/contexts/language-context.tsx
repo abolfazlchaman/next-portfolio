@@ -7,7 +7,7 @@ import en from "@/dictionaries/en.json";
 import fa from "@/dictionaries/fa.json";
 import { usePathname } from "next/navigation";
 
-const VALID_LANGUAGES = ["en-US", "fa"] as const;
+const VALID_LANGUAGES = ["en", "fa"] as const;
 type ValidLanguage = (typeof VALID_LANGUAGES)[number];
 
 const isValidLanguage = (lang: string): lang is ValidLanguage =>
@@ -20,20 +20,20 @@ export interface LanguageContextType {
 }
 
 const LanguageContext = createContext<LanguageContextType>({
-  language: "en-US",
+  language: "en",
   setLanguage: () => null,
   dict: en,
 });
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const [, setCookie] = useCookies(["language"]); // no need for cookies
+  const [, setCookie] = useCookies(["language"]);
 
   const pathLang = pathname?.split("/")[1] || "en";
-  const urlLang = pathLang === "fa" ? "fa" : "en-US";
+  const urlLang = pathLang === "fa" ? "fa" : "en";
 
   const [language, setLanguageState] = useState<ValidLanguage>(urlLang);
-  const [dict, setDict] = useState<typeof en | typeof fa>(language === "fa" ? fa : en);
+  const [dict, setDict] = useState<typeof en | typeof fa>(urlLang === "fa" ? fa : en);
 
   const setLanguage = useCallback(
     (lang: ValidLanguage) => {
@@ -52,7 +52,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   }, [urlLang, language, setLanguage]);
 
   useEffect(() => {
-    getDictionary(language === "en-US" ? "en" : language).then(setDict);
+    getDictionary(language).then(setDict);
   }, [language]);
 
   return (

@@ -1,9 +1,12 @@
+// middleware.ts
+
 import { match } from '@formatjs/intl-localematcher'
 import Negotiator from 'negotiator'
 import { NextRequest, NextResponse } from 'next/server'
 
-const locales = ['en-US', 'fa']
-const defaultLocale = 'en-US'
+// Use short language codes everywhere
+const locales = ['en', 'fa']
+const defaultLocale = 'en'
 
 function getLocale (request: NextRequest) {
   const cookieLang = request.cookies.get('language')?.value
@@ -18,14 +21,9 @@ function getLocale (request: NextRequest) {
   })
 
   const languages = negotiator.languages().map(lang => {
-    switch (lang.toLowerCase()) {
-      case 'fa':
-        return 'fa'
-      case 'en':
-        return 'en-US'
-      default:
-        return lang
-    }
+    if (lang.startsWith('fa')) return 'fa'
+    if (lang.startsWith('en')) return 'en'
+    return defaultLocale
   })
 
   return match(languages, locales, defaultLocale)
@@ -34,6 +32,8 @@ function getLocale (request: NextRequest) {
 export function middleware (request: NextRequest) {
   const pathname = request.nextUrl.pathname
   const cookieLang = request.cookies.get('language')?.value
+
+  // Skip static files and internal routes
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/favicon.ico') ||
@@ -44,16 +44,16 @@ export function middleware (request: NextRequest) {
     return NextResponse.next()
   }
 
-  // If already on a locale route (/fa or /en), just update cookie if needed (no redirect)
+  // Already on a locale route
   if (pathname.startsWith('/fa') || pathname.startsWith('/en')) {
-    const expectedLang = pathname.startsWith('/fa') ? 'fa' : 'en-US'
+    const expectedLang = pathname.startsWith('/fa') ? 'fa' : 'en'
 
-    // Only update cookie if it differs from the route
+    // Only set cookie if different
     if (cookieLang !== expectedLang) {
       const response = NextResponse.next()
       response.cookies.set('language', expectedLang, {
         path: '/',
-        maxAge: 31536000
+        maxAge: 31536000 // 1 year
       })
       return response
     }
@@ -61,7 +61,7 @@ export function middleware (request: NextRequest) {
     return NextResponse.next()
   }
 
-  // If no locale in path, detect best match and redirect
+  // No locale in path: detect and redirect
   const detectedLocale = getLocale(request)
 
   const newUrl = new URL(`/${detectedLocale}${pathname}`, request.url)
@@ -73,7 +73,7 @@ export function middleware (request: NextRequest) {
   return response
 }
 
-// Middleware matcher config: exclude certain paths from being handled
+// Matcher: exclude static paths and already localized paths
 export const config = {
   matcher: ['/((?!_next|fa|en|api|favicon.ico|fonts|images).*)']
 }
