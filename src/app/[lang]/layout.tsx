@@ -4,6 +4,7 @@ import { Providers } from "./provider";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/react";
 import { Metadata } from "next";
+import { ReactNode } from "react";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -91,15 +92,15 @@ const getMetadata = (lang: string): Metadata => {
   };
 };
 
-export default function LangLayout({
+export default async function LangLayout({
   children,
   params,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   params: { lang: string };
 }) {
   // BUG remove await async if flashing is major
-  const { lang } = params;
+  const { lang } = await params;
   const metadata = getMetadata(lang);
   const dir = lang === "fa" ? "rtl" : "ltr";
 
