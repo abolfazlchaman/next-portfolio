@@ -91,16 +91,13 @@ const getMetadata = (lang: string): Metadata => {
     canonical: isEnglish ? "https://www.abolfazlchaman.ir/en" : "https://www.abolfazlchaman.ir/fa",
   };
 };
-
-export default async function LangLayout({
-  children,
-  params,
-}: {
+type LangLayoutProps = {
   children: ReactNode;
   params: { lang: string };
-}) {
+};
+export default async function LangLayout({ children, params }: LangLayoutProps) {
   // BUG remove await async if flashing is major
-  const { lang } = params;
+  const { lang } = await params;
   const metadata = getMetadata(lang);
   const dir = lang === "fa" ? "rtl" : "ltr";
 
