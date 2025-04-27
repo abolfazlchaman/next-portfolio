@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { i18n, type Locale } from "../../../../i18n-config";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -69,7 +69,9 @@ export function LanguageSelector() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         {i18n.locales.map((lang) => (
-          <Link href={redirectedPathname(lang)}>
+          <Link
+            key={lang}
+            href={redirectedPathname(lang)}>
             <DropdownMenuItem
               key={lang}
               onClick={() => redirectedPathname(lang)}
