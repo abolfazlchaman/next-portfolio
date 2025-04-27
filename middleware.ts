@@ -1,65 +1,79 @@
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+// middleware.ts
 
-import { i18n } from "./i18n-config";
+import { match } from '@formatjs/intl-localematcher'
+import Negotiator from 'negotiator'
+import { NextRequest, NextResponse } from 'next/server'
 
-import { match as matchLocale } from "@formatjs/intl-localematcher";
-import Negotiator from "negotiator";
+// Use short language codes everywhere
+const locales = ['en', 'fa']
+const defaultLocale = 'en'
 
-function getLocale(request: NextRequest): string | undefined {
-  // Negotiator expects plain object so we need to transform headers
-  const negotiatorHeaders: Record<string, string> = {};
-  request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
+function getLocale (request: NextRequest) {
+  // const cookieLang = request.cookies.get('language')?.value
+  // if (cookieLang && locales.includes(cookieLang)) {
+  //   return cookieLang
+  // }
 
-  // @ts-ignore locales are readonly
-  const locales: string[] = i18n.locales;
+  const negotiator = new Negotiator({
+    headers: {
+      'accept-language': request.headers.get('accept-language') || defaultLocale
+    }
+  })
 
-  // Use negotiator and intl-localematcher to get best locale
-  let languages = new Negotiator({ headers: negotiatorHeaders }).languages(
-    locales,
-  );
+  const languages = negotiator.languages().map(lang => {
+    if (lang.startsWith('fa')) return 'fa'
+    if (lang.startsWith('en')) return 'en'
+    return defaultLocale
+  })
 
-  const locale = matchLocale(languages, locales, i18n.defaultLocale);
-
-  return locale;
+  return match(languages, locales, defaultLocale)
 }
 
-export function middleware(request: NextRequest) {
-  const pathname = request.nextUrl.pathname;
+export function middleware (request: NextRequest) {
+  const pathname = request.nextUrl.pathname
+  // const cookieLang = request.cookies.get('language')?.value
 
-  // // `/_next/` and `/api/` are ignored by the watcher, but we need to ignore files in `public` manually.
-  // // If you have one
-  // if (
-  //   [
-  //     '/manifest.json',
-  //     '/favicon.ico',
-  //     // Your other files in `public`
-  //   ].includes(pathname)
-  // )
-  //   return
-
-  // Check if there is any supported locale in the pathname
-  const pathnameIsMissingLocale = i18n.locales.every(
-    (locale) =>
-      !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`,
-  );
-
-  // Redirect if there is no locale
-  if (pathnameIsMissingLocale) {
-    const locale = getLocale(request);
-
-    // e.g. incoming request is /products
-    // The new URL is now /en-US/products
-    return NextResponse.redirect(
-      new URL(
-        `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}`,
-        request.url,
-      ),
-    );
+  // Skip static files and internal routes
+  if (
+    pathname.startsWith('/_next') ||
+    pathname.startsWith('/favicon.ico') ||
+    pathname.startsWith('/images') ||
+    pathname.startsWith('/fonts') ||
+    pathname === '/site.webmanifest'
+  ) {
+    return NextResponse.next()
   }
+
+  // Already on a locale route
+  if (pathname.startsWith('/fa') || pathname.startsWith('/en')) {
+    const expectedLang = pathname.startsWith('/fa') ? 'fa' : 'en'
+
+    // Only set cookie if different
+    // if (cookieLang !== expectedLang) {
+    //   const response = NextResponse.next()
+    //   response.cookies.set('language', expectedLang, {
+    //     path: '/',
+    //     maxAge: 31536000 // 1 year
+    //   })
+    //   return response
+    // }
+
+    return NextResponse.next()
+  }
+
+  // No locale in path: detect and redirect
+  const detectedLocale = getLocale(request)
+
+  const newUrl = new URL(`/${detectedLocale}${pathname}`, request.url)
+  const response = NextResponse.redirect(newUrl)
+  // response.cookies.set('language', detectedLocale, {
+  //   path: '/',
+  //   maxAge: 31536000
+  // })
+  return response
 }
 
+// Matcher: exclude static paths and already localized paths
 export const config = {
-  // Matcher ignoring `/_next/` and `/api/`
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
-};
+  matcher: ['/((?!_next|fa|en|api|favicon.ico|fonts|images).*)']
+}
