@@ -3,6 +3,7 @@ import { Locale } from "../../i18n-config";
 import About from "./components/about";
 import { Hero } from "./components/hero";
 import { Navigation } from "./components/navigation";
+import { Skills } from "./components/skills";
 
 export default async function IndexPage(props: { params: Promise<{ lang: Locale }> }) {
   const { lang } = await props.params;
@@ -26,6 +27,16 @@ export default async function IndexPage(props: { params: Promise<{ lang: Locale 
         <About
           dictionary={dictionary.about}
           language={lang}
+        />
+        <h1>123</h1>
+      </section>
+      <section
+        id="skills"
+        className="scroll-mt-20">
+        <Skills
+          skillsTitles={dictionary.skills}
+          softSkills={dictionary.softSkills}
+          languages={dictionary.languages}
         />
       </section>
     </main>

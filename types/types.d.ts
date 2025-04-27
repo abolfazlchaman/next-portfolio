@@ -19,6 +19,14 @@ export interface TranslationDict {
     dark: string
     system: string
   }
+  title: string
+  items: {
+    fa: string
+    en: string
+    de: string
+    ar: string
+    ru: string
+  }
   quotes: Quote[]
   navigation: {
     home: string
