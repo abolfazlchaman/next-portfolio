@@ -1,27 +1,20 @@
 import { getDictionary } from "../../get-dictionary";
 import { Locale } from "../../i18n-config";
-import Counter from "./components/counter";
 import { Hero } from "./components/hero";
-import { LanguageSelector } from "./components/language-selector";
-import LocaleSwitcher from "./components/locale-switcher";
-import { ThemeToggler } from "./components/theme-toggler";
+import { Navigation } from "./components/navigation";
 
 export default async function IndexPage(props: { params: Promise<{ lang: Locale }> }) {
   const { lang } = await props.params;
 
   const dictionary = await getDictionary(lang);
-
   return (
     <div>
-      <LocaleSwitcher />
-      <LanguageSelector />
-      <ThemeToggler dictionary={dictionary.theme} />
+      <Navigation
+        dictionary={dictionary.navigation}
+        fullName={dictionary.developerInfo.fullName}
+        theme={dictionary.theme}
+      />
       <Hero dictionary={dictionary} />
-      <div>
-        {/* <p>Current locale: {lang}</p> */}
-        <p>This text is rendered on the server: {dictionary.developerInfo.fullName}</p>
-        <Counter dictionary={dictionary} />
-      </div>
     </div>
   );
 }
