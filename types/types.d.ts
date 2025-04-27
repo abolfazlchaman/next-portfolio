@@ -11,6 +11,7 @@ export interface TranslationDict {
     profession: string
     experience: string
     location: string
+    CTAButtonText: string
   }
   socialLinks: { platform: string; url: string }[]
   theme: {
