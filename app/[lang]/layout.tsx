@@ -4,6 +4,7 @@ import { ThemeProvider } from "./components/theme-provider";
 import "./globals.css";
 import localFont from "next/font/local";
 import { Metadata } from "next";
+import Head from "next/head";
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
@@ -19,11 +20,9 @@ const shabnam = localFont({
   display: "swap",
 });
 
-export async function generateMetadata(
-  props: {
-    params: Promise<{ lang: Locale }>;
-  }
-): Promise<Metadata> {
+export async function generateMetadata(props: {
+  params: Promise<{ lang: Locale }>;
+}): Promise<Metadata> {
   const params = await props.params;
   const isEnglish = params.lang === "en";
 
@@ -95,6 +94,48 @@ export default async function Root(props: {
       lang={params.lang}
       dir={isRtl ? "rtl" : "ltr"}
       suppressHydrationWarning>
+      <Head>
+        {/* Favicon Links */}
+        <link
+          rel="icon"
+          href="/favicon.ico"
+        />
+        <link
+          rel="apple-touch-icon"
+          href="/apple-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        {/* Android Chrome icons */}
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="192x192"
+          href="/android-icon-192x192.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="512x512"
+          href="/android-icon-512x512.png"
+        />
+
+        {/* Web App Manifest */}
+        <link
+          rel="manifest"
+          href="/site.webmanifest"
+        />
+      </Head>
       <body>
         <ThemeProvider
           attribute="class"
