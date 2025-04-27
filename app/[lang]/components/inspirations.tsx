@@ -24,7 +24,7 @@ export function Inspirations({
         </div> */}
         <p className="text-lg mb-6 text-muted-foreground text-justify">{inspiration.description}</p>
 
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-20">
           {quotes.map((quote, index) => {
             const isReversed = index === 1;
             return (
@@ -51,7 +51,7 @@ export function Inspirations({
                     href={quote.wiki}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-foreground hover:underline hover:decoration-0">
+                    className="text-foreground hover:decoration-0">
                     <p className="text-xl font-bold mb-2 text-muted-foreground drop-shadow-lg  underline underline-offset-2">
                       {quote.author}
                     </p>

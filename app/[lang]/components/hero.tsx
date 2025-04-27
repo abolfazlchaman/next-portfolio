@@ -10,6 +10,7 @@ import { IoLogoWhatsapp } from "react-icons/io";
 import Image from "next/image";
 import img from "../../../public/images/AbolfazlChamanFormal.jpg";
 import { getDictionary } from "@/get-dictionary";
+import Link from "next/link";
 
 const iconMap: Record<string, React.ElementType> = {
   github: SiGithub,
@@ -62,59 +63,79 @@ export function Hero({ dictionary }: { dictionary: Awaited<ReturnType<typeof get
     // }
   }, []);
 
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
+    const element = document.getElementById("about");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <div className="container min-h-[calc(100vh-64px)] min-w-full flex flex-col lg:flex-row items-center justify-center mt-16 relative overflow-hidden">
+    <div className="container space-8 min-h-[calc(100vh-64px)] min-w-full flex flex-col items-center justify-center mt-16 relative overflow-hidden">
       {/* 🎉 Confetti Canvas */}
       {celebration === "birthday" && <Fireworks autorun={{ speed: 0.2 }} />}
       {celebration === "nowruz" && <Crossfire autorun={{ speed: 1 }} />}
       {celebration === "christmas" && <Snow autorun={{ speed: 30 }} />}
 
+      <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mb-4 text-shadow">
+        {fullName}
+        <span className="animate-pulse [animation-duration:0.5s] [animation-iteration-count:infinite] [animation-timing-function:steps(1,start)]">
+          {" "}
+          _
+        </span>
+      </h1>
+
       {/* 👤 Profile image */}
-      <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-[0px_4px_30px_0px_var(--custom-shadow)] transition-transform transform m-10">
+      <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-[0px_4px_30px_0px_var(--custom-shadow)]">
         <Image
           src={img.src}
           alt={fullName}
           fill
-          className="object-cover aspect-square rounded-full object-[left_55%_bottom_90%]"
+          className="object-cover aspect-square object-[left_55%_bottom_90%]"
           priority
         />
       </div>
+      <h2 className="text-xl text-muted-foreground mt-4 justify-center text-center">
+        {profession}
+      </h2>
 
-      {/* 👨‍💻 Text content */}
-      <div className="space-y-2 flex flex-col justify-center items-center text-center">
-        <div className="flex flex-wrap md:flex-nowrap justify-center gap-2">
-          {socialLinks.map((link) => {
-            const Icon = iconMap[link.key];
-            if (!Icon) return null;
-            return (
-              <Button
-                key={link.label}
-                variant="outline"
-                size="sm"
-                asChild
-                className="gap-2">
-                <a
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={link.label}>
-                  <Icon className="h-4 w-4" />
-                  {link.label}
-                </a>
-              </Button>
-            );
-          })}
-        </div>
-        <h2 className="text-xl text-muted-foreground mt-2">{profession}</h2>
-        <h1 className="text-3xl md:text-4xl font-semibold tracking-tight my-2 text-shadow">
-          {fullName}
-          <span className="animate-pulse [animation-duration:0.5s] [animation-iteration-count:infinite] [animation-timing-function:steps(1,start)]">
-            {" "}
-            _
-          </span>
-        </h1>
-        <p className="text-muted-foreground">{experience}</p>
-        <p className="text-muted-foreground">{location}</p>
+      <div className="flex flex-wrap-reverse mt-4 md:flex-nowrap justify-center gap-2">
+        {socialLinks.map((link) => {
+          const Icon = iconMap[link.key];
+          if (!Icon) return null;
+          return (
+            <Button
+              key={link.label}
+              variant="outline"
+              size="sm"
+              asChild
+              className="gap-2">
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.label}>
+                <Icon className="h-4 w-4" />
+                {link.label}
+              </a>
+            </Button>
+          );
+        })}
+      </div>
+      <Button
+        asChild
+        size="lg"
+        className="my-4 w-full">
+        <Link
+          onClick={handleClick}
+          href="#"
+          className="font-semibold">
+          {dictionary.developerInfo.CTAButtonText}
+        </Link>
+      </Button>
+      <div className="w-full space-y-2 flex flex-col justify-center items-center text-center">
+        <p className="text-muted-foreground w-full ">{experience}</p>
         {celebration && (
           <div className="mt-6 p-4 rounded-2xl border shadow-md bg-background text-foreground max-w-md">
             <h3 className="text-2xl font-bold mb-2">
