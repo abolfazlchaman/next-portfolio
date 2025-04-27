@@ -22,6 +22,7 @@ export default async function Root(props: {
 
   return (
     <html
+      className="scroll-smooth"
       lang={params.lang}
       dir={isRtl ? "rtl" : "ltr"}
       suppressHydrationWarning>
