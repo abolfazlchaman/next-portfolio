@@ -1,4 +1,5 @@
 import { i18n, type Locale } from "../../i18n-config";
+import { ThemeProvider } from "./components/theme-provider";
 import "./globals.css";
 
 export const metadata = {
@@ -19,8 +20,18 @@ export default async function Root(props: {
   const { children } = props;
 
   return (
-    <html lang={params.lang}>
-      <body>{children}</body>
+    <html
+      lang={params.lang}
+      suppressHydrationWarning>
+      <body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
