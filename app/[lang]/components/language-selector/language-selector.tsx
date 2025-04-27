@@ -76,8 +76,8 @@ export function LanguageSelector() {
               key={lang}
               onClick={() => redirectedPathname(lang)}
               className="flex items-center justify-between">
-              {lang}
-              {pathname?.startsWith(lang) && <span className="text-primary">✓</span>}
+              {i18n.labels[lang]}
+              {pathname?.startsWith(`/${lang}`) && <span className="text-primary">✓</span>}
             </DropdownMenuItem>
           </Link>
         ))}
