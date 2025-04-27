@@ -26,7 +26,7 @@ const christmas = { day: 25, month: 12 };
 // TODO const emigrationDay = { day: XX, month: XX, year: XXXX };
 
 export function Hero({ dictionary }: { dictionary: Awaited<ReturnType<typeof getDictionary>> }) {
-  const { fullName, profession, experience, location } = dictionary.developerInfo;
+  const { fullName, profession, experience, CTAButtonText } = dictionary.developerInfo;
   const socialLinks = dictionary.socialLinks || [];
 
   const [celebration, setCelebration] = useState<"birthday" | "nowruz" | "christmas" | null>(null);
@@ -131,7 +131,7 @@ export function Hero({ dictionary }: { dictionary: Awaited<ReturnType<typeof get
           onClick={handleClick}
           href="#"
           className="font-semibold">
-          {dictionary.developerInfo.CTAButtonText}
+          {CTAButtonText}
         </Link>
       </Button>
       <div className="w-full space-y-2 flex flex-col justify-center items-center text-center">
