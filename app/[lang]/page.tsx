@@ -28,7 +28,6 @@ export default async function IndexPage(props: { params: Promise<{ lang: Locale 
           dictionary={dictionary.about}
           language={lang}
         />
-        <h1>123</h1>
       </section>
       <section
         id="skills"
