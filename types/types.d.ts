@@ -4,7 +4,6 @@ export interface Quote {
   author: string
   wiki: string
 }
-
 export interface TranslationDict {
   language: string
   developerInfo: {
@@ -36,7 +35,7 @@ export interface TranslationDict {
   about: {
     title: string
     description: string
-    buttonTextFa: string
+    buttonTextFa?: string
     buttonTextEn: string
   }
   projects: {
