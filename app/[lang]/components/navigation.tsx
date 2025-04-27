@@ -62,7 +62,6 @@ export function Navigation({
   theme: Awaited<ReturnType<typeof getDictionary>>["theme"];
 }) {
   const [isOpen, setIsOpen] = React.useState(false);
-  const { lang } = useParams();
   const navigationItems = getNavigationItems(dictionary);
 
   return (
