@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { i18n, type Locale } from "../../../../i18n-config";
+import { i18n, type Locale } from "../../../i18n-config";
 // import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -64,7 +64,9 @@ export function LanguageSelector() {
           variant="outline"
           size="icon">
           <SiGoogletranslate className="h-[1.2rem] w-[1.2rem]" />
-          <span className="sr-only">Toggle language</span>
+          <span className="sr-only">
+            {pathname?.startsWith("/en") ? "Change language" : "تغییر زبان"}
+          </span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
