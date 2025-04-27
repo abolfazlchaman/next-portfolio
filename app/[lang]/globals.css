@@ -80,6 +80,7 @@
   --font-shabnam-variable: 'Shabnam', system-ui;
   --font-shabnam-light: 'Shabnam-Light', system-ui;
   --font-shabnam-bold: 'Shabnam-Bold', system-ui;
+  --custom-shadow: rgba(2, 6, 24, 0.15);
 }
 
 .dark {
@@ -114,6 +115,7 @@
   --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
+  --custom-shadow: rgba(248, 250, 252, 0.15);
 }
 
 @layer base {

@@ -56,9 +56,9 @@ export function About({
       <Image
         src={img}
         alt="About Image"
-        className="h-auto w-full md:w-1/2 rounded-[3px] overflow-hidden shadow-[0px_4px_30px_0px_rgba(0,0,0,0.20)] dark:shadow-[0px_4px_30px_0px_rgba(255,255,255,0.20)] transition-transform transform m-10 flex"
+        className="h-auto w-full md:w-1/2 rounded-[3px] overflow-hidden shadow-[0px_4px_30px_0px_var(--custom-shadow)] transition-transform transform m-10 flex"
       />
-      {/* <div className="relative w-full h-[500px] md:w-1/2 rounded-[3px] overflow-hidden shadow-[0px_4px_30px_0px_rgba(0,0,0,0.20)] dark:shadow-[0px_4px_30px_0px_rgba(255,255,255,0.20)] transition-transform transform m-10">
+      {/* <div className="relative w-full h-[500px] md:w-1/2 rounded-[3px] overflow-hidden shadow-[0px_4px_30px_0px_var(--custom-shadow)] transition-transform transform m-10">
         <Image
           src={img.src}
           alt="Abolfazl Chaman"
