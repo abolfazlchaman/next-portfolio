@@ -40,7 +40,10 @@ export function middleware (request: NextRequest) {
     pathname === '/site.webmanifest' ||
     pathname.startsWith('/android-chrome-192x192.png') ||
     pathname.startsWith('/android-chrome-512x512.png') ||
-    pathname.startsWith('/apple-touch-icon.png')
+    pathname.startsWith('/apple-touch-icon.png') ||
+    pathname === '/robots.txt' ||
+    pathname === '/sitemap.xml' ||
+    pathname === '/security.txt'
   ) {
     return NextResponse.next()
   }
@@ -76,5 +79,7 @@ export function middleware (request: NextRequest) {
 
 // Matcher: exclude static paths and already localized paths
 export const config = {
-  matcher: ['/((?!_next|fa|en|api|favicon.ico|fonts|images).*)']
+  matcher: [
+    '/((?!_next|fa|en|api|favicon.ico|fonts|images|robots.txt|sitemap.xml|security.txt).*)'
+  ]
 }
