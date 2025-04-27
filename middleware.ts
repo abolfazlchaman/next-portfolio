@@ -1,5 +1,3 @@
-// middleware.ts
-
 import { match } from '@formatjs/intl-localematcher'
 import Negotiator from 'negotiator'
 import { NextRequest, NextResponse } from 'next/server'
@@ -33,13 +31,16 @@ export function middleware (request: NextRequest) {
   const pathname = request.nextUrl.pathname
   // const cookieLang = request.cookies.get('language')?.value
 
-  // Skip static files and internal routes
+  // Skip static files, manifest, and internal routes
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/favicon.ico') ||
     pathname.startsWith('/images') ||
     pathname.startsWith('/fonts') ||
-    pathname === '/site.webmanifest'
+    pathname === '/site.webmanifest' ||
+    pathname.startsWith('/android-chrome-192x192.png') ||
+    pathname.startsWith('/android-chrome-512x512.png') ||
+    pathname.startsWith('/apple-touch-icon.png')
   ) {
     return NextResponse.next()
   }
