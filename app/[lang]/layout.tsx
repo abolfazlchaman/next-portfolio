@@ -5,6 +5,7 @@ import "./globals.css";
 import localFont from "next/font/local";
 import { Metadata } from "next";
 import Head from "next/head";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
@@ -145,6 +146,7 @@ export default async function Root(props: {
           disableTransitionOnChange>
           {children}
           <Analytics />
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
