@@ -76,6 +76,7 @@ export async function generateMetadata(props: {
         ? "https://www.abolfazlchaman.ir/en"
         : "https://www.abolfazlchaman.ir/fa",
     },
+    manifest: "/site.webmanifest",
   };
 }
 
