@@ -1,43 +1,71 @@
 import { getDictionary } from "../../get-dictionary";
 import { Locale } from "../../i18n-config";
-import About from "./components/about";
+import { About } from "./components/about";
+import { Footer } from "./components/footer";
 import { Hero } from "./components/hero";
+import { Inspirations } from "./components/inspirations";
 import { Navigation } from "./components/navigation";
+import { Projects } from "./components/projects";
 import { Skills } from "./components/skills";
 
 export default async function IndexPage(props: { params: Promise<{ lang: Locale }> }) {
   const { lang } = await props.params;
-
   const dictionary = await getDictionary(lang);
+
+  const {
+    developerInfo: { fullName },
+  } = dictionary;
+
   return (
     <main>
       <Navigation
         dictionary={dictionary.navigation}
-        fullName={dictionary.developerInfo.fullName}
+        fullName={fullName}
         theme={dictionary.theme}
       />
-      <section
-        id="hero"
-        aria-label="Main hero section">
-        <Hero dictionary={dictionary} />
-      </section>
-      <section
-        id="about"
-        aria-label="About Abolfazl Chaman section">
-        <About
-          dictionary={dictionary.about}
-          language={lang}
-        />
-      </section>
-      <section
-        id="skills"
-        className="scroll-mt-20">
-        <Skills
-          skillsTitles={dictionary.skills}
-          softSkills={dictionary.softSkills}
-          languages={dictionary.languages}
-        />
-      </section>
+      <div className="container md:px-40 xl:px-60 px-10 min-w-full">
+        <section
+          id="hero"
+          aria-label="Main hero section">
+          <Hero dictionary={dictionary} />
+        </section>
+        <section
+          id="about"
+          aria-label="About Abolfazl Chaman section">
+          <About
+            dictionary={dictionary.about}
+            language={lang}
+          />
+        </section>
+        <section
+          id="skills"
+          className="scroll-mt-20">
+          <Skills
+            skillsTitles={dictionary.skills}
+            softSkills={dictionary.softSkills}
+            languages={dictionary.languages}
+          />
+        </section>
+        <section
+          id="projects"
+          className="scroll-mt-20">
+          <Projects projects={dictionary.projects} />
+        </section>
+        <section
+          id="inspiration"
+          className="scroll-mt-20">
+          <Inspirations
+            inspiration={dictionary.inspiration}
+            quotes={dictionary.quotes}
+          />
+        </section>
+      </div>
+      <Footer
+        language={lang}
+        footer={dictionary.footer}
+        fullName={fullName}
+        socialLinks={dictionary.socialLinks}
+      />
     </main>
   );
 }
