@@ -14,7 +14,7 @@ import { getDictionary } from "@/get-dictionary";
 import { NavLinksType } from "@/types/types";
 import { useParams } from "next/navigation";
 
-const getNavigationItems = (dict: NavLinksType, lang: string) => [
+const getNavigationItems = (dict: NavLinksType) => [
   { label: dict.home, icon: MdHomeFilled, id: "hero" },
   { label: dict.about, icon: FaInfo, id: "about" },
   { label: dict.skills, icon: FaGear, id: "skills" },
@@ -63,7 +63,7 @@ export function Navigation({
 }) {
   const [isOpen, setIsOpen] = React.useState(false);
   const { lang } = useParams();
-  const navigationItems = getNavigationItems(dictionary, lang as string);
+  const navigationItems = getNavigationItems(dictionary);
 
   return (
     <nav className="fixed top-0 z-50 w-full border-b bg-background/95 backdrop-blur">
