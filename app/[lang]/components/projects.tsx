@@ -22,7 +22,7 @@ export function Projects({
         {projects.projectsData.map((project) => (
           <div
             key={project.link}
-            className="flex flex-col justify-between items-center w-full md:w-1/2 xl:w-1/3 min-h-fit h-[500px] overflow-scroll">
+            className="flex flex-col justify-between items-center w-full md:w-1/2 xl:w-1/3 min-h-fit h-[500px] overflow-scroll shadow-[0px_4px_30px_0px_rgba(0,0,0,0.20)] dark:shadow-[0px_4px_30px_0px_rgba(255,255,255,0.10)]">
             {" "}
             <Project
               key={project.title}

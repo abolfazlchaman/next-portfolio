@@ -38,6 +38,7 @@ export function Project({ title, link, tech, description, image }: ProjectProps)
           <div className="w-full h-full bg-foreground" />
         )}
       </div>
+      <p className="text-lg text-muted-foreground text-justify mt-4">{description}</p>
       <div className="flex flex-wrap gap-2">
         {tech.map((tech) => (
           <span
@@ -47,7 +48,6 @@ export function Project({ title, link, tech, description, image }: ProjectProps)
           </span>
         ))}
       </div>
-      <p className="text-lg text-muted-foreground text-justify mt-4">{description}</p>
     </div>
   );
 }
