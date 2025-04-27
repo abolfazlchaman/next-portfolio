@@ -18,10 +18,12 @@ export default async function Root(props: {
   const params = await props.params;
 
   const { children } = props;
+  const isRtl = ["fa", "ar", "he"].includes(params.lang); //keep for future
 
   return (
     <html
       lang={params.lang}
+      dir={isRtl ? "rtl" : "ltr"}
       suppressHydrationWarning>
       <body>
         <ThemeProvider
