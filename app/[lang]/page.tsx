@@ -1,5 +1,6 @@
 import { getDictionary } from "../../get-dictionary";
 import { Locale } from "../../i18n-config";
+import About from "./components/about";
 import { Hero } from "./components/hero";
 import { Navigation } from "./components/navigation";
 
@@ -8,13 +9,25 @@ export default async function IndexPage(props: { params: Promise<{ lang: Locale 
 
   const dictionary = await getDictionary(lang);
   return (
-    <div>
+    <main>
       <Navigation
         dictionary={dictionary.navigation}
         fullName={dictionary.developerInfo.fullName}
         theme={dictionary.theme}
       />
-      <Hero dictionary={dictionary} />
-    </div>
+      <section
+        id="hero"
+        aria-label="Main hero section">
+        <Hero dictionary={dictionary} />
+      </section>
+      <section
+        id="about"
+        aria-label="About Abolfazl Chaman section">
+        <About
+          dictionary={dictionary.about}
+          language={lang}
+        />
+      </section>
+    </main>
   );
 }
