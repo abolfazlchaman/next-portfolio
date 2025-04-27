@@ -15,13 +15,42 @@ import { NavLinksType } from "@/types/types";
 import { useParams } from "next/navigation";
 
 const getNavigationItems = (dict: NavLinksType, lang: string) => [
-  { label: dict.home, icon: MdHomeFilled, href: `/${lang}#hero` },
-  { label: dict.about, icon: FaInfo, href: `/${lang}#about` },
-  { label: dict.skills, icon: FaGear, href: `/${lang}#skills` },
-  { label: dict.projects, icon: FaTools, href: `/${lang}#projects` },
-  { label: dict.inspirations, icon: FaLightbulb, href: `/${lang}#inspiration` },
-  // { TODO label: dict.navigation.blog, icon: SiBloglovin, href: "/blog" },
+  { label: dict.home, icon: MdHomeFilled, id: "hero" },
+  { label: dict.about, icon: FaInfo, id: "about" },
+  { label: dict.skills, icon: FaGear, id: "skills" },
+  { label: dict.projects, icon: FaTools, id: "projects" },
+  { label: dict.inspirations, icon: FaLightbulb, id: "inspiration" },
+  // { TODO label: dict.navigation.blog, icon: SiBloglovin, id: "blog" },
 ];
+
+function ScrollLink({
+  id,
+  children,
+  onClick,
+}: {
+  id: string;
+  children: React.ReactNode;
+  onClick?: () => void;
+}) {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+    if (onClick) {
+      onClick();
+    }
+  };
+
+  return (
+    <Link
+      href="#"
+      onClick={handleClick}>
+      {children}
+    </Link>
+  );
+}
 
 export function Navigation({
   dictionary,
@@ -41,11 +70,11 @@ export function Navigation({
       <div className="container min-w-full flex h-16 items-center justify-between px-4 md:px-6">
         <div className="relative z-50">
           <h1 className={cn("font-semibold", isOpen && "text-foreground")}>
-            <Link
-              href={`/${lang}#hero`}
-              className="text-inherit hover:text-primary transition-colors">
-              {fullName}
-            </Link>
+            <ScrollLink
+              id="hero"
+              onClick={() => setIsOpen(false)}>
+              <span className="text-inherit hover:text-primary transition-colors">{fullName}</span>
+            </ScrollLink>
           </h1>
         </div>
 
@@ -53,13 +82,14 @@ export function Navigation({
         <div className="hidden md:flex md:items-start justify-start md:flex-1">
           <div className="flex items-center space-x-6 px-6 rtl:border-r-2 rtl:mr-6 border-muted ltr:border-l-2 ltr:ml-6">
             {navigationItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="flex items-center text-sm font-medium transition-colors hover:text-primary">
-                <item.icon className="mr-2 h-4 w-4 rtl:ml-2 rtl:mr-0" />
-                {item.label}
-              </Link>
+              <ScrollLink
+                key={item.id}
+                id={item.id}>
+                <div className="flex items-center text-sm font-medium transition-colors hover:text-primary cursor-pointer">
+                  <item.icon className="mr-2 h-4 w-4 rtl:ml-2 rtl:mr-0" />
+                  {item.label}
+                </div>
+              </ScrollLink>
             ))}
           </div>
         </div>
@@ -100,14 +130,15 @@ export function Navigation({
         <div className="container h-full px-4 pt-20">
           <nav className="flex flex-col space-y-6">
             {navigationItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="flex items-center text-lg font-medium text-foreground transition-colors hover:text-primary"
+              <ScrollLink
+                key={item.id}
+                id={item.id}
                 onClick={() => setIsOpen(false)}>
-                <item.icon className="mr-2 h-5 w-5 rtl:ml-2 rtl:mr-0" />
-                {item.label}
-              </Link>
+                <div className="flex items-center text-lg font-medium text-foreground transition-colors hover:text-primary cursor-pointer">
+                  <item.icon className="mr-2 h-5 w-5 rtl:ml-2 rtl:mr-0" />
+                  {item.label}
+                </div>
+              </ScrollLink>
             ))}
             <div className="flex items-center gap-4 border-t pt-6">
               <ThemeToggler dictionary={theme} />
