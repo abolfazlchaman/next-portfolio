@@ -61,6 +61,9 @@ export function Hero({ dictionary }: { dictionary: Awaited<ReturnType<typeof get
     // if (today.getDate() === emigrationDay.day && today.getMonth() + 1 === emigrationDay.month && today.getFullYear() === emigrationDay.year) {
     //   setCelebration("emigration");
     // }
+
+    // false flag due to how the code works, therefor disabled
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
