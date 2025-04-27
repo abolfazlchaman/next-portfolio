@@ -19,11 +19,12 @@ const shabnam = localFont({
   display: "swap",
 });
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { lang: Locale };
-}): Promise<Metadata> {
+export async function generateMetadata(
+  props: {
+    params: Promise<{ lang: Locale }>;
+  }
+): Promise<Metadata> {
+  const params = await props.params;
   const isEnglish = params.lang === "en";
 
   return {
