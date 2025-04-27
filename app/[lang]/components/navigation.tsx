@@ -12,13 +12,14 @@ import { ThemeToggler } from "./theme-toggler";
 import { LanguageSelector } from "./language-selector";
 import { getDictionary } from "@/get-dictionary";
 import { NavLinksType } from "@/types/types";
+import { useParams } from "next/navigation";
 
-const getNavigationItems = (dict: NavLinksType) => [
-  { label: dict.home, icon: MdHomeFilled, href: "#hero" },
-  { label: dict.about, icon: FaInfo, href: "#about" },
-  { label: dict.skills, icon: FaGear, href: "#skills" },
-  { label: dict.projects, icon: FaTools, href: "#projects" },
-  { label: dict.inspirations, icon: FaLightbulb, href: "#inspiration" },
+const getNavigationItems = (dict: NavLinksType, lang: string) => [
+  { label: dict.home, icon: MdHomeFilled, href: `/${lang}#hero` },
+  { label: dict.about, icon: FaInfo, href: `/${lang}#about` },
+  { label: dict.skills, icon: FaGear, href: `/${lang}#skills` },
+  { label: dict.projects, icon: FaTools, href: `/${lang}#projects` },
+  { label: dict.inspirations, icon: FaLightbulb, href: `/${lang}#inspiration` },
   // { TODO label: dict.navigation.blog, icon: SiBloglovin, href: "/blog" },
 ];
 
@@ -32,7 +33,8 @@ export function Navigation({
   theme: Awaited<ReturnType<typeof getDictionary>>["theme"];
 }) {
   const [isOpen, setIsOpen] = React.useState(false);
-  const navigationItems = getNavigationItems(dictionary);
+  const { lang } = useParams();
+  const navigationItems = getNavigationItems(dictionary, lang as string);
 
   return (
     <nav className="fixed top-0 z-50 w-full border-b bg-background/95 backdrop-blur">
@@ -40,7 +42,7 @@ export function Navigation({
         <div className="relative z-50">
           <h1 className={cn("font-semibold", isOpen && "text-foreground")}>
             <Link
-              href="#hero"
+              href={`/${lang}#hero`}
               className="text-inherit hover:text-primary transition-colors">
               {fullName}
             </Link>
