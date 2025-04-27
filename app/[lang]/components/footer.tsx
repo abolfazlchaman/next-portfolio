@@ -36,19 +36,10 @@ export function Footer({
 }) {
   return (
     <footer className="container mx-auto p-4 pt-6 mt-6 border-t bg-background/95">
-      {/*TODO <div className="flex flex-wrap justify-center mb-4">
-        {footerLinks.map((link) => (
-          <Button
-            key={link.label}
-            variant="link"
-            size="sm"
-            asChild
-            className="gap-2"
-          >
-            <a href={link.href}>{link.label}</a>
-          </Button>
-        ))}
-      </div> */}
+      <p className="text-center text-sm text-gray-500 mt-8 mb-8 dark:text-gray-400">
+        &copy; {language === "fa" ? getJalaliYear() : new Date().getFullYear()} {fullName} |{" "}
+        {footer.copyrightText}
+      </p>
       <div className="flex flex-wrap justify-center mb-4 gap-2">
         {socialLinks.map((link) => {
           const Icon = iconMap[link.key];
@@ -73,13 +64,9 @@ export function Footer({
           );
         })}
       </div>
-      <blockquote className="text-center text-sm text-gray-500 dark:text-gray-400">
+      <blockquote className="text-center text-sm text-gray-500 mt-10 mb-10 dark:text-gray-400">
         &ldquo;{footer.quote}&rdquo; - {footer.author}
       </blockquote>
-      <p className="text-center text-sm text-gray-500 mt-4 dark:text-gray-400">
-        &copy; {language === "fa" ? getJalaliYear() : new Date().getFullYear()} {fullName} |{" "}
-        {footer.copyrightText}
-      </p>
     </footer>
   );
 }
