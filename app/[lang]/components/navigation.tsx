@@ -12,7 +12,6 @@ import { ThemeToggler } from "./theme-toggler";
 import { LanguageSelector } from "./language-selector";
 import { getDictionary } from "@/get-dictionary";
 import { NavLinksType } from "@/types/types";
-import { useParams } from "next/navigation";
 
 const getNavigationItems = (dict: NavLinksType) => [
   { label: dict.home, icon: MdHomeFilled, id: "hero" },
