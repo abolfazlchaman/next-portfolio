@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { SiGithub, SiLinkedin, SiGmail, SiTelegram } from "react-icons/si";
 import { IoLogoWhatsapp } from "react-icons/io";
 import Image from "next/image";
-import img from "../../../public/images/AbolfazlChamanFormal.jpg";
+import img from "../../../public/images/cropped-AbolfazlChamanFormalUpscaled.webp";
 import { getDictionary } from "@/get-dictionary";
 import Link from "next/link";
 
