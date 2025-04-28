@@ -12,6 +12,7 @@ import { ThemeToggler } from "./theme-toggler";
 import { LanguageSelector } from "./language-selector";
 import { getDictionary } from "@/get-dictionary";
 import { NavLinksType } from "@/types/types";
+import { Button } from "@/components/ui/button";
 
 const getNavigationItems = (dict: NavLinksType) => [
   { label: dict.home, icon: MdHomeFilled, id: "hero" },
@@ -101,7 +102,9 @@ export function Navigation({
         </div>
 
         {/* Mobile Navigation Button */}
-        <button
+        <Button
+          aria-label="Navigation Hamburger Menu"
+          variant="ghost"
           className="relative z-50 block md:hidden"
           onClick={() => setIsOpen(!isOpen)}>
           <Menu
@@ -116,7 +119,7 @@ export function Navigation({
               !isOpen ? "opacity-0" : "text-foreground opacity-100",
             )}
           />
-        </button>
+        </Button>
       </div>
 
       {/* Mobile Navigation Overlay */}
