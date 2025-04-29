@@ -43,8 +43,7 @@ export function middleware (request: NextRequest) {
     pathname.startsWith('/apple-touch-icon.png') ||
     pathname === '/robots.txt' ||
     pathname === '/sitemap.xml' ||
-    pathname === '/security.txt' ||
-    pathname === '/zohoverify/verifyforzoho.html'
+    pathname === '/security.txt'
   ) {
     return NextResponse.next()
   }
