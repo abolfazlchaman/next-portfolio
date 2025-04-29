@@ -6,16 +6,16 @@ import { cn } from "@/lib/utils";
 // import { SiBloglovin } from "react-icons/si";
 import { Menu, X } from "lucide-react";
 import { FaInfo, FaLightbulb, FaTools } from "react-icons/fa";
-import { MdHomeFilled } from "react-icons/md";
 import { FaGear } from "react-icons/fa6";
 import { ThemeToggler } from "./theme-toggler";
 import { LanguageSelector } from "./language-selector";
 import { getDictionary } from "@/get-dictionary";
 import { NavLinksType } from "@/types/types";
 import { Button } from "@/components/ui/button";
+import { SiMainwp } from "react-icons/si";
 
 const getNavigationItems = (dict: NavLinksType) => [
-  { label: dict.home, icon: MdHomeFilled, id: "hero" },
+  { label: dict.home, icon: SiMainwp, id: "hero" },
   { label: dict.about, icon: FaInfo, id: "about" },
   { label: dict.skills, icon: FaGear, id: "skills" },
   { label: dict.projects, icon: FaTools, id: "projects" },
@@ -72,7 +72,9 @@ export function Navigation({
             <ScrollLink
               id="hero"
               onClick={() => setIsOpen(false)}>
-              <span className="text-inherit hover:text-primary transition-colors">{fullName}</span>
+              <span className="font-light text-md md:font-bold md:text-lg tracking-tight text-shadow-accent text-foreground hover:text-muted-foreground transition-colors rounded-md">
+                {fullName}
+              </span>
             </ScrollLink>
           </h1>
         </div>
@@ -84,8 +86,8 @@ export function Navigation({
               <ScrollLink
                 key={item.id}
                 id={item.id}>
-                <div className="flex items-center text-sm font-medium transition-colors hover:text-primary cursor-pointer">
-                  <item.icon className="mr-2 h-4 w-4 rtl:ml-2 rtl:mr-0" />
+                <div className="flex items-center text-md font-light transition-colors text-foreground cursor-pointer hover:text-muted-foreground">
+                  {/* <item.icon className="mr-2 h-4 w-4 rtl:ml-2 rtl:mr-0" /> */}
                   {item.label}
                 </div>
               </ScrollLink>
@@ -115,7 +117,7 @@ export function Navigation({
           />
           <X
             className={cn(
-              "absolute right-0 top-0 h-6 w-6 transition-all duration-200",
+              "absolute right-[12px] top-[11px] h-6 w-6 transition-all duration-200",
               !isOpen ? "opacity-0" : "text-foreground opacity-100",
             )}
           />
@@ -128,7 +130,8 @@ export function Navigation({
           "fixed inset-0 z-40 h-screen w-full bg-background",
           isOpen ? "block" : "hidden",
         )}>
-        <div className="container h-full px-4 pt-20">
+        <div className="container h-full px-4 pt-10">
+          <hr className="my-4" />
           <nav className="flex flex-col space-y-6">
             {navigationItems.map((item) => (
               <ScrollLink
