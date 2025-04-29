@@ -20,7 +20,7 @@ export function ProjectImage({ src, alt }: { src: string; alt: string }) {
           loaded ? "opacity-100" : "opacity-0"
         }`}
         unoptimized
-        onLoadingComplete={() => setLoaded(true)}
+        onLoad={() => setLoaded(true)}
       />
     </div>
   );
