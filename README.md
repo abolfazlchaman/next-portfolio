@@ -1,3 +1,39 @@
+# Abolfazl Chaman - Portfolio Website
+
+## 🚀 What is this?
+
+This is my personal portfolio website, where you can find my latest resume, projects, contact details, and more general information about me.
+
+## 📥 Contributing
+
+Pull requests are welcome!  
+If you want to suggest improvements, please fork the repo and create a pull request into the **Development** branch.  
+Any contribution is greatly appreciated.
+
+👉 [Create a Pull Request](https://github.com/abolfazlchaman/next-portfolio/pulls)
+
+## 🐛 Issue Reporting
+
+If you find any bugs or have suggestions, please open a new issue or contact me directly.
+
+👉 [Open an Issue](https://github.com/abolfazlchaman/next-portfolio/issues/new/choose)
+
+Or you can reach me through [my website](https://www.abolfazlchaman.com/).
+
+## 🛠️ main branch
+
+- **Release:** [production-ready version](https://github.com/abolfazlchaman/next-portfolio/tree/main)
+
+## 📄 License
+
+This project is licensed under the [Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/).
+
+---
+
+© 2025 Abolfazl Chaman
+
+---
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
