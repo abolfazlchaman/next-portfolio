@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { SiGithub, SiGmail, SiLinkedin, SiTelegram } from "react-icons/si";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { getDictionary } from "@/get-dictionary";
+import Link from "next/link";
 
 // const footerLinks = [
 //   { label: "About", href: "/about" },
@@ -52,14 +53,14 @@ export function Footer({
               size="sm"
               asChild
               className="gap-2">
-              <a
+              <Link
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={link.label}>
                 <Icon className="w-4 h-4" />
                 {link.label}
-              </a>
+              </Link>
             </Button>
           );
         })}

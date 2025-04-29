@@ -1,19 +1,20 @@
-import Image from "next/image";
+import Link from "next/link";
 import { FiExternalLink } from "react-icons/fi";
+import { ProjectImage } from "./project-skeleton";
 
 export interface ProjectProps {
   title: string;
   link: string;
   tech: string[];
   description: string;
-  image?: string;
+  image: string;
 }
 
 export function Project({ title, link, tech, description, image }: ProjectProps) {
   return (
     <div className="flex flex-col space-y-4 items-center justify-between w-full h-full p-4 rounded-lg shadow-[0px_4px_30px_0px_rgba(0,0,0,0.15)] dark:shadow-[0px_4px_30px_0px_rgba(255,255,255,0.15)]">
       <h3 className="text-2xl font-semibold tracking-tight mb-2">
-        <a
+        <Link
           href={link}
           target="_blank"
           rel="noopener noreferrer"
@@ -23,20 +24,13 @@ export function Project({ title, link, tech, description, image }: ProjectProps)
             className="mx-1"
           />
           {title}
-        </a>
+        </Link>
       </h3>
       <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4">
-        {image ? (
-          <Image
-            src={image}
-            alt={title}
-            fill
-            className="object-cover object-center"
-            unoptimized={true}
-          />
-        ) : (
-          <div className="w-full h-full bg-foreground" />
-        )}
+        <ProjectImage
+          src={image}
+          alt={title}
+        />
       </div>
       <p className="text-lg text-muted-foreground text-justify mt-4">{description}</p>
       <div className="flex flex-wrap gap-2">

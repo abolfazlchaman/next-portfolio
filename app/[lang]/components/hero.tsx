@@ -1,4 +1,5 @@
 "use client";
+import { Skeleton } from "@/components/ui/skeleton";
 
 import { useEffect, useState } from "react";
 import Crossfire from "react-canvas-confetti/dist/presets/crossfire";
@@ -8,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { SiGithub, SiLinkedin, SiGmail, SiTelegram } from "react-icons/si";
 import { IoLogoWhatsapp } from "react-icons/io";
 import Image from "next/image";
-import img from "../../../public/images/cropped-AbolfazlChamanFormalUpscaled.webp";
+import img from "public/images/cropped-AbolfazlChamanFormalUpscaled.webp";
 import { getDictionary } from "@/get-dictionary";
 import Link from "next/link";
 
@@ -30,6 +31,7 @@ export function Hero({ dictionary }: { dictionary: Awaited<ReturnType<typeof get
   const socialLinks = dictionary.socialLinks || [];
 
   const [celebration, setCelebration] = useState<"birthday" | "nowruz" | "christmas" | null>(null);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   const currentYear = new Date().getFullYear();
   const age = currentYear - birthday.year;
@@ -91,11 +93,17 @@ export function Hero({ dictionary }: { dictionary: Awaited<ReturnType<typeof get
 
       {/* 👤 Profile image */}
       <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-[0px_4px_30px_0px_var(--custom-shadow)]">
+        {!isImageLoaded && (
+          <Skeleton className="absolute inset-0 w-full h-full rounded-full bg-sidebar-ring" />
+        )}
         <Image
           src={img.src}
           alt={fullName}
           fill
-          className="object-cover aspect-square object-[left_55%_bottom_90%]"
+          onLoad={() => setIsImageLoaded(true)}
+          className={`object-cover aspect-square object-[left_55%_bottom_90%] transition-opacity duration-500 ${
+            isImageLoaded ? "opacity-100" : "opacity-0"
+          }`}
           priority
         />
       </div>
@@ -114,14 +122,14 @@ export function Hero({ dictionary }: { dictionary: Awaited<ReturnType<typeof get
               size="sm"
               asChild
               className="gap-2">
-              <a
+              <Link
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={link.label}>
                 <Icon className="h-4 w-4" />
                 {link.label}
-              </a>
+              </Link>
             </Button>
           );
         })}
@@ -155,21 +163,21 @@ export function Hero({ dictionary }: { dictionary: Awaited<ReturnType<typeof get
                 <p className="mt-2">{dictionary.celebrations.birthday.line2}</p>
                 <p className="mt-2 italic text-sm">{dictionary.celebrations.birthday.footer}</p>
                 <p className="mt-2 text-xs text-muted-foreground italic">
-                  <a
+                  <Link
                     href="https://birth.carbalad.com/1382/1/19/male/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="underline hover:text-foreground">
                     <span className="font-semibold">IV・VIII・MMIII</span>
-                  </a>
+                  </Link>
                   &nbsp;|&nbsp;
-                  <a
+                  <Link
                     href="https://lunaf.com/lunar-calendar/2003/04/08/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="underline hover:text-foreground">
                     {dictionary.language === "fa" ? "ماه این روز 🌙" : "This days moon 🌙"}
-                  </a>
+                  </Link>
                 </p>
               </>
             )}

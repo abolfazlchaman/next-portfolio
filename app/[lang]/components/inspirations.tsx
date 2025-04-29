@@ -1,5 +1,6 @@
-import Image from "next/image";
 import { getDictionary } from "@/get-dictionary";
+import Link from "next/link";
+import { InspirationImage } from "./inspiration-skeleton";
 
 export function Inspirations({
   inspiration,
@@ -33,21 +34,17 @@ export function Inspirations({
                 className={`relative bg-background p-6 rounded-2xl shadow-[0px_4px_30px_0px_rgba(0,0,0,0.20)] dark:shadow-[0px_4px_30px_0px_rgba(255,255,255,0.10)] flex flex-col sm:flex-row ${
                   isReversed ? "sm:flex-row-reverse" : ""
                 } gap-6 items-center sm:items-start transition-transform`}>
-                {/* Image as the card background */}
                 <div className="absolute inset-0 w-full h-full">
-                  <Image
+                  <InspirationImage
                     src={quote.image}
                     alt={quote.author}
-                    fill
-                    className={`rounded-2xl opacity-40 object-cover ${
-                      isReversed ? "-scale-x-100" : ""
-                    }`}
+                    reversed={isReversed}
                   />
                 </div>
 
                 {/* Text content */}
                 <div className="relative rtl:text-right z-10 w-full text-left sm:text-left p-6">
-                  <a
+                  <Link
                     href={quote.wiki}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -55,7 +52,7 @@ export function Inspirations({
                     <p className="text-xl font-bold mb-2 text-muted-foreground drop-shadow-lg  underline underline-offset-2">
                       {quote.author}
                     </p>
-                  </a>
+                  </Link>
                   <blockquote className="text-xl italic text-foreground drop-shadow-lg">
                     {quote.quote}
                   </blockquote>
