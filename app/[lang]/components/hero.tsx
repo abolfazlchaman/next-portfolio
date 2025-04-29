@@ -81,7 +81,7 @@ export function Hero({ dictionary }: { dictionary: Awaited<ReturnType<typeof get
       {celebration === "nowruz" && <Crossfire autorun={{ speed: 1 }} />}
       {celebration === "christmas" && <Snow autorun={{ speed: 30 }} />}
 
-      <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mb-4 text-shadow">
+      <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mt-4 mb-4 text-shadow">
         {fullName}
         <span className="animate-pulse [animation-duration:0.5s] [animation-iteration-count:infinite] [animation-timing-function:steps(1,start)]">
           {" "}
