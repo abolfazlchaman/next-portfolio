@@ -40,7 +40,7 @@ export async function generateMetadata(props: {
     authors: [
       {
         name: isEnglish ? "Abolfazl Chaman" : "ابوالفضل چمن",
-        url: isEnglish ? "https://www.abolfazlchaman.ir/en" : "https://www.abolfazlchaman.ir/fa",
+        url: isEnglish ? "https://www.abolfazlchaman.com/en" : "https://www.abolfazlchaman.com/fa",
       },
     ],
     openGraph: {
@@ -51,11 +51,11 @@ export async function generateMetadata(props: {
       description: isEnglish
         ? "Discover the portfolio of Abolfazl Chaman, a seasoned Web Developer and Software Engineer with over 5 years of experience delivering high-performance, scalable web applications. Specializing in React, Next.js, TypeScript, and modern full-stack web and software development. Check out my resume and let's discuss how I can help improve your team or project output."
         : "پورتفولیوی ابوالفضل چمن، توسعه‌دهنده وب و مهندس نرم‌افزار با بیش از ۵ سال تجربه در ارائه اپلیکیشن‌های وب با عملکرد بالا و مقیاس‌پذیر. متخصص در ری‌اکت، نکست‌جی‌اس، تایپ‌اسکریپت و توسعه وب و نرم‌افزار فول‌استک مدرن. رزومه من را مشاهده کنید و با من در مورد بهبود عملکرد تیم یا خروجی پروژه خود ارتباط برقرار کنید.",
-      url: isEnglish ? "https://www.abolfazlchaman.ir/en" : "https://www.abolfazlchaman.ir/fa",
+      url: isEnglish ? "https://www.abolfazlchaman.com/en" : "https://www.abolfazlchaman.com/fa",
       siteName: isEnglish ? "Abolfazl Chaman Portfolio" : "پورتفولیوی ابوالفضل چمن",
       images: [
         {
-          url: "https://www.abolfazlchaman.ir/images/AbolfazlChamanFormal.jpg",
+          url: "https://www.abolfazlchaman.com/images/AbolfazlChamanFormal.jpg",
           alt: isEnglish
             ? "Abolfazl Chaman - Web Developer, Software Engineer and Software Consultant"
             : "ابوالفضل چمن - توسعه‌دهنده، وب مهندس نرم‌افزار و مشاور نرم‌افزار",
@@ -70,12 +70,12 @@ export async function generateMetadata(props: {
       description: isEnglish
         ? "Discover the portfolio of Abolfazl Chaman, a seasoned Web Developer and Software Engineer with over 5 years of experience delivering high-performance, scalable web applications. Specializing in React, Next.js, TypeScript, and modern full-stack web and software development. Check out my resume and let's discuss how I can help improve your team or project output."
         : "پورتفولیوی ابوالفضل چمن، توسعه‌دهنده وب و مهندس نرم‌افزار با بیش از ۵ سال تجربه در ارائه اپلیکیشن‌های وب با عملکرد بالا و مقیاس‌پذیر. متخصص در ری‌اکت، نکست‌جی‌اس، تایپ‌اسکریپت و توسعه وب و نرم‌افزار فول‌استک مدرن. رزومه من را مشاهده کنید و با من در مورد بهبود عملکرد تیم یا خروجی پروژه خود ارتباط برقرار کنید.",
-      images: "https://www.abolfazlchaman.ir/images/AbolfazlChamanFormal.jpg",
+      images: "https://www.abolfazlchaman.com/images/AbolfazlChamanFormal.jpg",
     },
     alternates: {
       canonical: isEnglish
-        ? "https://www.abolfazlchaman.ir/en"
-        : "https://www.abolfazlchaman.ir/fa",
+        ? "https://www.abolfazlchaman.com/en"
+        : "https://www.abolfazlchaman.com/fa",
     },
     manifest: "/site.webmanifest",
   };

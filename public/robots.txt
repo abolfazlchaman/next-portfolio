@@ -3,4 +3,4 @@ Disallow:
 
 Allow: /*
 
-Sitemap: https://www.abolfazlchaman.ir/sitemap.xml
+Sitemap: https://www.abolfazlchaman.com/sitemap.xml

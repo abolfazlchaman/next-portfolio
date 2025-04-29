@@ -174,8 +174,8 @@
       {
         "title": "Abolfazl Chaman",
         "description": "A redesigned portfolio with a clean and simple UI, hidden easter eggs, and built using modern web technologies for an interactive and engaging experience.",
-        "link": "https://www.abolfazlchaman.ir",
-        "image": "/images/portfoiloEN.webp",
+        "link": "https://www.abolfazlchaman.com",
+        "image": "/images/PwaAppImage.webp",
         "technologies": [
           "Nextjs",
           "TypeScript",

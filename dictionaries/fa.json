@@ -174,8 +174,8 @@
       {
         "title": "ابوالفضل چمن",
         "description": "یک طراحی جدید از وب‌سایت شخصی با رابط کاربری ساده و تمیز، ویژگی‌های پنهان (ایستر اگ‌ها) و ساخته‌شده با تکنولوژی‌های مدرن وب برای تجربه‌ای تعاملی و جذاب.",
-        "link": "https://www.abolfazlchaman.ir",
-        "image": "/images/portfoiloEN.webp",
+        "link": "https://www.abolfazlchaman.com",
+        "image": "/images/PwaAppImage.webp",
         "technologies": [
           "Nextjs",
           "TypeScript",

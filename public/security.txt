@@ -1,4 +1,4 @@
-# security.txt for abolfazlchaman.ir
+# security.txt for abolfazlchaman.com
 
 Contact: mailto:info.abolfazlchaman@gmail.com
 Preferred-Languages: en, fa
