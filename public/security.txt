@@ -1,6 +1,6 @@
 # security.txt for abolfazlchaman.com
 
-Contact: mailto:info.abolfazlchaman@gmail.com
+Contact: mailto:contact@abolfazlchaman.com
 Preferred-Languages: en, fa
 
 # No monetary rewards

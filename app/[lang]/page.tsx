@@ -34,9 +34,9 @@ export default async function IndexPage(props: { params: Promise<{ lang: Locale 
       "https://t.me/+989352121688",
       "https://wa.me/+989027001688",
       "https://wa.me/+989352121688",
+      "mailto:contact@abolfazlchaman.com",
+      "mailto:contact@abolfazlchaman.com",
       "mailto:info.abolfazlchaman@gmail.com",
-      "mailto:abolfazlchaman.info@gmail.com",
-      "mailto:abolfazl.chaman.3@gmail.com",
     ],
     worksFor: [
       {
