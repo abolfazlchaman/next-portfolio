@@ -12,7 +12,7 @@ export interface ProjectProps {
 
 export function Project({ title, link, tech, description, image }: ProjectProps) {
   return (
-    <div className="flex flex-col space-y-4 items-center justify-between w-full h-full p-4 rounded-lg shadow-[0px_4px_30px_0px_rgba(0,0,0,0.15)] dark:shadow-[0px_4px_30px_0px_rgba(255,255,255,0.15)]">
+    <div className="flex flex-col space-y-4 items-center justify-between w-full h-full p-4 rounded-lg shadow-[0px_4px_30px_0px_var(--custom-shadow)] overflow-auto">
       <h3 className="text-2xl font-semibold tracking-tight mb-2">
         <Link
           href={link}
