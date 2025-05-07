@@ -137,7 +137,7 @@
       {
         "title": "Digimenu",
         "description": "دیجیتال منو منیجر با قابلیت های متعدد ویرایش قیمت،تصویر ،حذف، اضافه کردن دسته بندی و آیتم ها.",
-        "link": "https://www.mydigimenu.ir",
+        "link": "https://www.mydigimenu.ir/fa",
         "image": "/images/qrmenu.webp",
         "technologies": [
           "React",
@@ -174,7 +174,7 @@
       {
         "title": "ابوالفضل چمن",
         "description": "یک طراحی جدید از وب‌سایت شخصی با رابط کاربری ساده و تمیز، ویژگی‌های پنهان (ایستر اگ‌ها) و ساخته‌شده با تکنولوژی‌های مدرن وب برای تجربه‌ای تعاملی و جذاب.",
-        "link": "https://www.abolfazlchaman.com",
+        "link": "https://www.abolfazlchaman.com/fa",
         "image": "/images/PwaAppImage.webp",
         "technologies": [
           "Nextjs",
