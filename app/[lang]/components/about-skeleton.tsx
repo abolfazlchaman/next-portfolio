@@ -9,7 +9,7 @@ export function AboutImage() {
   const [loaded, setLoaded] = useState(false);
 
   return (
-    <div className="relative w-full h-full rounded-[3px]">
+    <div className="relative w-full h-full rounded-[8px] shadow-[0px_4px_30px_0px_var(--custom-shadow)]">
       {!loaded && (
         <Skeleton className="absolute inset-0 w-full h-full rounded-[3px] bg-sidebar-ring" />
       )}
@@ -18,7 +18,7 @@ export function AboutImage() {
         alt="About Image"
         fill
         onLoad={() => setLoaded(true)}
-        className={`object-cover transition-opacity duration-500 ${
+        className={`object-cover transition-opacity duration-500 rounded-sm ${
           loaded ? "opacity-100" : "opacity-0"
         }`}
         priority
