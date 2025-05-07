@@ -26,7 +26,7 @@ export function Project({ title, link, tech, description, image }: ProjectProps)
           {title}
         </Link>
       </h3>
-      <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4">
+      <div className="relative w-full shrink-0 h-48 rounded-lg overflow-hidden mb-4">
         <ProjectImage
           src={image}
           alt={title}
