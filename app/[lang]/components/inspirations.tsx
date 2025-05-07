@@ -31,7 +31,7 @@ export function Inspirations({
             return (
               <div
                 key={index}
-                className={`relative bg-background p-6 rounded-2xl shadow-[0px_4px_30px_0px_rgba(0,0,0,0.20)] dark:shadow-[0px_4px_30px_0px_rgba(255,255,255,0.10)] flex flex-col sm:flex-row ${
+                className={`relative bg-background p-6 rounded-2xl shadow-[0px_4px_30px_0px_var(--custom-shadow)] flex flex-col sm:flex-row ${
                   isReversed ? "sm:flex-row-reverse" : ""
                 } gap-6 items-center sm:items-start transition-transform`}>
                 <div className="absolute inset-0 w-full h-full">
