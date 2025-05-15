@@ -9,7 +9,6 @@ import { Inspirations } from './components/inspirations';
 import { Navigation } from './components/navigation';
 import { Projects } from './components/projects';
 import { Skills } from './components/skills';
-import { ImpactSection } from '@/components/impact/impact-section';
 import { ReferenceSection } from '@/components/references/reference-section';
 
 export default async function IndexPage(props: { params: Promise<{ lang: Locale }> }) {

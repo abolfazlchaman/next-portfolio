@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import CountUp from 'react-countup';
 import { Dictionary, ImpactData } from '@/types/dictionary';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { cn } from '@/lib/utils';
 
 interface ImpactCardProps {
   id: string;
@@ -14,9 +13,6 @@ interface ImpactCardProps {
 export function ImpactCard({ id, dictionary }: ImpactCardProps) {
   const impact = dictionary.impact[id] as ImpactData;
   const stats = impact.stats;
-
-  const isTeamsImpact = id === 'teams-impact';
-  const isUserImpact = id === 'user-impact';
 
   return (
     <motion.div
