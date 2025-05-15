@@ -22,7 +22,7 @@ export function ReferenceSection({ dictionary }: ReferenceSectionProps) {
 
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
           <ReferenceCard
-            id='leila'
+            id='eslaminejad'
             dictionary={dictionary}
           />
           <ReferenceCard
@@ -30,7 +30,7 @@ export function ReferenceSection({ dictionary }: ReferenceSectionProps) {
             dictionary={dictionary}
           />
           <ReferenceCard
-            id='eslaminejad'
+            id='leila'
             dictionary={dictionary}
           />
         </div>

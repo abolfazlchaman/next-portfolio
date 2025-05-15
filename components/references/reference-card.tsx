@@ -18,18 +18,20 @@ export function ReferenceCard({ id, dictionary }: ReferenceCardProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}>
-      <Card className='h-full hover:shadow-lg transition-shadow'>
+      <Card className='min-h-full justify-between flex hover:shadow-lg transition-shadow'>
         <CardContent className='p-6'>
-          <div className='flex items-start gap-4'>
+          <div className='flex items-start gap-4 min-h-full justify-between flex-col'>
             <div className='mt-1'>
               <ScrollText className='h-6 w-6 text-primary' />
             </div>
-            <div className='space-y-4'>
+            <div className='space-y-4 min-h-full justify-between flex flex-col'>
+              <p className='text-sm font-medium text-foreground/80'>{reference.by_name}</p>
+              <hr />
               <p
                 className='text-muted-foreground italic'
                 dangerouslySetInnerHTML={{ __html: reference.text }}
               />
-              <p className='text-sm font-medium text-foreground/80'>— {reference.by}</p>
+              <p className='text-sm font-medium text-foreground/80'>— {reference.by_title}</p>
             </div>
           </div>
         </CardContent>
