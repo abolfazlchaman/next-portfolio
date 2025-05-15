@@ -139,22 +139,22 @@
       {
         "title": "Digimenu",
         "description": "Digital menu manager with various features like price editing, image changes, deletion, adding categories and items.",
-        "link": "https://www.mydigimenu.ir",
+        "link": "https://www.mydigimenu.online",
         "image": "/images/qrmenuEN.webp",
         "technologies": ["React", "Nodejs", "Express", "MongoDB", "Material-ui", "JavaScript"]
       },
       {
         "title": "Visabird",
         "description": "An open-source app to view tech companies from around the world that have worked with governments, embassies and issued visas in various job sectors.",
-        "link": "https://www.visabird.ir",
+        "link": "https://www.visabird.work",
         "image": "/images/visabird.webp",
         "technologies": ["Nextjs", "Tailwind", "TypeScript"]
       },
       {
-        "title": "Ultradeal",
+        "title": "CoinLens",
         "description": "A powerful trading platform with real-time stock market data, financial maps, analytics, and advanced tools for smart investing.",
-        "link": "https://www.ultradeal.ir",
-        "image": "/images/cryptoman.webp",
+        "link": "https://www.coinlens.info",
+        "image": "/images/coinlens.webp",
         "technologies": ["Nextjs", "TypeScript", "React", "Shadcn"]
       },
       {

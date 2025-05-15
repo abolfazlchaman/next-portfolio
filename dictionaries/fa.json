@@ -131,22 +131,22 @@
       {
         "title": "Digimenu",
         "description": "دیجیتال منو منیجر با قابلیت های متعدد ویرایش قیمت،تصویر ،حذف، اضافه کردن دسته بندی و آیتم ها.",
-        "link": "https://www.mydigimenu.ir/fa",
+        "link": "https://www.mydigimenu.online/fa",
         "image": "/images/qrmenu.webp",
         "technologies": ["React", "Nodejs", "Express", "MongoDB", "Material-ui", "JavaScript"]
       },
       {
         "title": "Visabird",
         "description": "اپلیکیشن اپن سورس برای مشاهده شرکت های تکنولوژی از سرتاسر دنیا که در زمینه های مختلف خدمات دولتی و سفارتی ویزا صادر کرده اند.",
-        "link": "https://www.visabird.ir",
+        "link": "https://www.visabird.work",
         "image": "/images/visabird.webp",
         "technologies": ["Nextjs", "Tailwind", "TypeScript"]
       },
       {
-        "title": "Ultradeal",
+        "title": "CoinLens",
         "description": "پلتفرمی قدرتمند برای معاملات با داده‌های لحظه‌ای بازار بورس، نقشه‌های مالی، تحلیل‌ها و ابزارهای پیشرفته برای سرمایه‌گذاری هوشمندانه",
-        "link": "https://www.ultradeal.ir",
-        "image": "/images/cryptoman.webp",
+        "link": "https://www.coinlens.info",
+        "image": "/images/coinlens.webp",
         "technologies": ["Nextjs", "TypeScript", "React", "Shadcn"]
       },
       {
