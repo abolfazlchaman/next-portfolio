@@ -5,8 +5,10 @@ import CountUp from 'react-countup';
 import { Dictionary, ImpactData } from '@/types/dictionary';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
+type ImpactId = Exclude<keyof Dictionary['impact'], 'title' | 'filter'>;
+
 interface ImpactCardProps {
-  id: string;
+  id: ImpactId;
   dictionary: Dictionary;
 }
 
@@ -34,7 +36,7 @@ export function ImpactCard({ id, dictionary }: ImpactCardProps) {
                 key={key}
                 className='flex items-center gap-2'>
                 <div className='text-2xl font-bold text-primary'>
-                  {value.includes('+') ? (
+                  {typeof value === 'string' && value.includes('+') ? (
                     <CountUp
                       end={parseInt(value.replace(/[^0-9]/g, ''))}
                       duration={2.5}

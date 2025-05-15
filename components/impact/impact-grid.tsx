@@ -10,8 +10,10 @@ interface ImpactGridProps {
   dictionary: Dictionary;
 }
 
+type ImpactId = Exclude<keyof Dictionary['impact'], 'title' | 'filter'>;
+
 type ImpactItem = {
-  id: string;
+  id: ImpactId;
   categories: ImpactCategory[];
 };
 
@@ -35,7 +37,7 @@ export function ImpactGrid({ activeCategory, dictionary }: ImpactGridProps) {
   return (
     <motion.div
       layout
-      className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6'>
+      className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
       {filteredItems.map((item) => (
         <ImpactCard
           key={item.id}

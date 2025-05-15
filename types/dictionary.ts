@@ -1,3 +1,9 @@
+export interface ImpactData {
+  title: string;
+  description: string;
+  stats: Record<string, string>;
+}
+
 export interface Dictionary {
   language: string;
   developerInfo: {
@@ -17,13 +23,12 @@ export interface Dictionary {
     nowruz: {
       title: string;
       line1: string;
-      line2: string;
+      emojiLine: string;
       footer: string;
     };
     christmas: {
       title: string;
       line1: string;
-      line2: string;
       footer: string;
     };
   };
@@ -36,52 +41,29 @@ export interface Dictionary {
       crypto: string;
       startups: string;
     };
-    'react-global': {
-      title: string;
-      description: string;
-      stats: {
-        sites: string;
-        popularity: string;
-      };
-    };
-    'airbnb-standards': {
-      title: string;
-      description: string;
-      stats: {
-        users: string;
-        stars: string;
-      };
-    };
-    coinlens: {
-      title: string;
-      description: string;
-      stats: {
-        users: string;
-        volume: string;
-      };
-    };
-    digimenu: {
-      title: string;
-      description: string;
-      stats: {
-        users: string;
-        orders: string;
-      };
-    };
+    'react-global': ImpactData;
+    'airbnb-standards': ImpactData;
+    coinlens: ImpactData;
+    digimenu: ImpactData;
+    'teams-impact': ImpactData;
+    'user-impact': ImpactData;
   };
   references: {
     title: string;
     leila: {
       text: string;
-      by: string;
+      by_name: string;
+      by_title: string;
     };
     ali: {
       text: string;
-      by: string;
+      by_name: string;
+      by_title: string;
     };
     eslaminejad: {
       text: string;
-      by: string;
+      by_name: string;
+      by_title: string;
     };
   };
 } 
