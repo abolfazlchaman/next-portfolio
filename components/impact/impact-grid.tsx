@@ -10,18 +10,26 @@ interface ImpactGridProps {
   dictionary: Dictionary;
 }
 
-const impactItems = [
-  { id: 'react-global', category: 'corporate' },
-  { id: 'airbnb-standards', category: 'corporate' },
-  { id: 'coinlens', category: 'crypto' },
-  { id: 'digimenu', category: 'startups' },
-  { id: 'teams-impact', category: 'corporate' },
-  { id: 'user-impact', category: 'all' },
-] as const;
+type ImpactItem = {
+  id: string;
+  categories: ImpactCategory[];
+};
+
+const impactItems: ImpactItem[] = [
+  { id: 'react-global', categories: ['corporate', 'opensource'] },
+  { id: 'airbnb-standards', categories: ['corporate', 'opensource'] },
+  { id: 'coinlens', categories: ['crypto'] },
+  { id: 'digimenu', categories: ['startups'] },
+  { id: 'teams-impact', categories: ['corporate'] },
+  { id: 'user-impact', categories: ['all'] },
+];
 
 export function ImpactGrid({ activeCategory, dictionary }: ImpactGridProps) {
   const filteredItems = impactItems.filter(
-    (item) => activeCategory === 'all' || item.category === activeCategory,
+    (item) =>
+      activeCategory === 'all' ||
+      item.categories.includes(activeCategory) ||
+      item.categories.includes('all'),
   );
 
   return (
