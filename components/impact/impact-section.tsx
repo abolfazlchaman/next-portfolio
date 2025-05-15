@@ -17,7 +17,7 @@ export function ImpactSection({ dictionary }: ImpactSectionProps) {
   const [activeCategory, setActiveCategory] = useState<ImpactCategory>('all');
 
   return (
-    <section className='w-full py-24 px-4 md:px-6 lg:px-8'>
+    <section className='w-full py-24'>
       <div className='container mx-auto'>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
