@@ -65,6 +65,8 @@
     "skills": "Skills",
     "projects": "Projects",
     "inspirations": "Inspirations",
+    "impact": "My Impact",
+    "endorsements": "Endorsements",
     "toggle_menu": "Toggle menu"
   },
   "footer": {
@@ -139,53 +141,103 @@
         "description": "Digital menu manager with various features like price editing, image changes, deletion, adding categories and items.",
         "link": "https://www.mydigimenu.ir",
         "image": "/images/qrmenuEN.webp",
-        "technologies": [
-          "React",
-          "Nodejs",
-          "Express",
-          "MongoDB",
-          "Material-ui",
-          "JavaScript"
-        ]
+        "technologies": ["React", "Nodejs", "Express", "MongoDB", "Material-ui", "JavaScript"]
       },
       {
         "title": "Visabird",
         "description": "An open-source app to view tech companies from around the world that have worked with governments, embassies and issued visas in various job sectors.",
         "link": "https://www.visabird.ir",
         "image": "/images/visabird.webp",
-        "technologies": [
-          "Nextjs",
-          "Tailwind",
-          "TypeScript"
-        ]
+        "technologies": ["Nextjs", "Tailwind", "TypeScript"]
       },
       {
         "title": "Ultradeal",
         "description": "A powerful trading platform with real-time stock market data, financial maps, analytics, and advanced tools for smart investing.",
         "link": "https://www.ultradeal.ir",
         "image": "/images/cryptoman.webp",
-        "technologies": [
-          "Nextjs",
-          "TypeScript",
-          "React",
-          "Shadcn"
-        ]
+        "technologies": ["Nextjs", "TypeScript", "React", "Shadcn"]
       },
       {
         "title": "Abolfazl Chaman",
         "description": "A redesigned portfolio with a clean and simple UI, hidden easter eggs, and built using modern web technologies for an interactive and engaging experience.",
         "link": "https://www.abolfazlchaman.com/en",
         "image": "/images/PwaAppImage.webp",
-        "technologies": [
-          "Nextjs",
-          "TypeScript",
-          "i18next",
-          "React",
-          "Tailwind",
-          "Shadcn",
-          "Eslint"
-        ]
+        "technologies": ["Nextjs", "TypeScript", "i18next", "React", "Tailwind", "Shadcn", "Eslint"]
       }
     ]
+  },
+  "impact": {
+    "title": "My Impact",
+    "filter": {
+      "all": "All",
+      "opensource": "Open Source",
+      "corporate": "Corporate",
+      "crypto": "Crypto & Web3",
+      "startups": "Startups"
+    },
+    "react-global": {
+      "title": "React at Global Scale",
+      "description": "Contributed to the React library at Meta, impacting 82.95% of global usage across 44 million+ websites.",
+      "stats": {
+        "sites": "44,078,284+ sites",
+        "popularity": "82.95% global usage"
+      }
+    },
+    "airbnb-standards": {
+      "title": "Airbnb JavaScript Standards",
+      "description": "Helped revise Airbnb's JavaScript/React/CSS style guide used by 140K+ devs. Shaped formatting and best practices.",
+      "stats": {
+        "devs": "140,000+ developers",
+        "companyValue": "$80.34B Airbnb valuation"
+      }
+    },
+    "coinlens": {
+      "title": "Crypto Intelligence Engine",
+      "description": "Built Coinlens, analyzing 23,000+ cryptocurrencies. Delivered dynamic investment insights under 0.74s.",
+      "stats": {
+        "coins": "23,000+ assets tracked",
+        "speed": "0.74s insight delivery",
+        "market": "$2T crypto market context"
+      }
+    },
+    "digimenu": {
+      "title": "Restaurant SuperApp",
+      "description": "Led creation of Digimenu. Served 2,800+ users daily and cut client costs by 40-60%.",
+      "stats": {
+        "users": "2,800+ daily users",
+        "savings": "40–60% client cost reduction"
+      }
+    },
+    "teams-impact": {
+      "title": "Collaboration at Scale",
+      "description": "Worked with over 30 successful teams across startups and multibillion-dollar companies like Meta and Airbnb. Known for engineering excellence, team communication, and scalable solutions delivery.",
+      "stats": {
+        "teams": "30+ high-performing teams",
+        "companies": "Startups to $80B+ giants"
+      }
+    },
+    "user-impact": {
+      "title": "Users First, Always",
+      "description": "Built and maintained products that serve 140,000+ users, with a focus on scalability, accessibility, and performance. Designed systems that are not just used — they're relied on.",
+      "stats": {
+        "users": "140,000+ total users",
+        "mission": "Scalable, accessible software"
+      }
+    }
+  },
+  "references": {
+    "title": "Endorsements",
+    "leila": {
+      "text": "Abolfazl is a <strong>motivated and technically skilled engineer</strong> with a rare ability to collaborate deeply across teams. He demonstrates <strong>maturity, approachability, and true leadership</strong> during team-based projects. I have no doubt he will thrive in any competitive work environment.",
+      "by": "Dr. Leila Mortazavifar, Ph.D. in Electronic Engineering"
+    },
+    "ali": {
+      "text": "Abolfazl is a <strong>highly intelligent and solution-oriented developer</strong> with excellent problem-solving abilities. He's technically skilled in <strong>JavaScript, Python, C#, and C++</strong>, and brings <strong>creativity, diligence, and leadership</strong> into every team he works with.",
+      "by": "Dr. Ali Ghermezian, Ph.D. in Artificial Intelligence"
+    },
+    "eslaminejad": {
+      "text": "Abolfazl has consistently delivered <strong>exceptional results</strong> in every project he's been part of. His <strong>deep technical knowledge</strong> and ability to <strong>drive positive outcomes</strong> make him an invaluable asset to any team.",
+      "by": "Dr. Mohammad R. Eslaminejad, Ph.D. in Software Engineering"
+    }
   }
 }
