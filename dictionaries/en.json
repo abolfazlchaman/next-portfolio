@@ -134,7 +134,7 @@
   },
   "projects": {
     "title": "Handful of projects I've collaborated on",
-    "subtitle": "This is not a complete list but rather a selection of projects I have contributed to.",
+    "subtitle": "This is not a complete list but rather a selection of projects I have worked on.",
     "projectsData": [
       {
         "title": "Digimenu",
@@ -229,15 +229,18 @@
     "title": "Endorsements",
     "leila": {
       "text": "Abolfazl is a <strong>motivated and technically skilled engineer</strong> with a rare ability to collaborate deeply across teams. He demonstrates <strong>maturity, approachability, and true leadership</strong> during team-based projects. I have no doubt he will thrive in any competitive work environment.",
-      "by": "Dr. Leila Mortazavifar, Ph.D. in Electronic Engineering"
+      "by_name": "Dr. Leila Mortazavifar",
+      "by_title": "Ph.D. in Electronics & Software Engineering"
     },
     "ali": {
-      "text": "Abolfazl is a <strong>highly intelligent and solution-oriented developer</strong> with excellent problem-solving abilities. He's technically skilled in <strong>JavaScript, Python, C#, and C++</strong>, and brings <strong>creativity, diligence, and leadership</strong> into every team he works with.",
-      "by": "Dr. Ali Ghermezian, Ph.D. in Artificial Intelligence"
+      "text": "Abolfazl is a <strong>highly intelligent and solution-oriented developer</strong> with excellent problem-solving abilities. He's greatly skilled in <strong>JavaScript, Python, C#, and C++</strong>, and brings <strong>creativity, diligence, and leadership</strong> into every team he works with.",
+      "by_name": "Dr. Ali Ghermezian",
+      "by_title": "Ph.D. in Artificial Intelligence"
     },
     "eslaminejad": {
       "text": "Abolfazl has consistently delivered <strong>exceptional results</strong> in every project he's been part of. His <strong>deep technical knowledge</strong> and ability to <strong>drive positive outcomes</strong> make him an invaluable asset to any team.",
-      "by": "Dr. Mohammad R. Eslaminejad, Ph.D. in Software Engineering"
+      "by_name": "Dr. Mohammad R. Eslaminejad",
+      "by_title": "Ph.D. in Software Engineering"
     }
   }
 }
