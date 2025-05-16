@@ -6,6 +6,14 @@ import CountUp from '@/components/CountUpNoSSR';
 import { Dictionary, ImpactData } from '@/types/dictionary';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ExternalLink } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faBrain,
+  faUtensils,
+  faUpRightAndDownLeftFromCenter,
+  faRankingStar,
+} from '@fortawesome/free-solid-svg-icons';
+import { faAirbnb, faMeta } from '@fortawesome/free-brands-svg-icons';
 
 type ImpactId = Exclude<keyof Dictionary['impact'], 'title' | 'filter'>;
 
@@ -87,6 +95,16 @@ const englishToPersian: Record<string, string> = {
   '9': '۹',
 };
 
+const impactIcons: Record<ImpactId, any> = {
+  'react-global': faMeta,
+  'airbnb-standards': faAirbnb,
+  'coinlens': faBrain,
+  'digimenu': faUtensils,
+  'teams-impact': faUpRightAndDownLeftFromCenter,
+  'user-impact': faRankingStar,
+  'sources': null,
+};
+
 export function ImpactCard({ id, dictionary }: ImpactCardProps) {
   const impact = dictionary.impact[id] as ImpactData;
   const stats = impact.stats;
@@ -150,11 +168,19 @@ export function ImpactCard({ id, dictionary }: ImpactCardProps) {
       transition={{ duration: 0.5 }}>
       <Card className='h-full hover:shadow-lg transition-shadow flex flex-col'>
         <CardHeader>
-          <CardTitle className='text-xl font-bold'>{impact.title}</CardTitle>
+          <div className='flex items-center gap-3'>
+            {impactIcons[id] && (
+              <FontAwesomeIcon
+                icon={impactIcons[id]}
+                className='text-primary text-4xl'
+              />
+            )}
+            <CardTitle className='text-xl font-bold'>{impact.title}</CardTitle>
+          </div>
         </CardHeader>
         <CardContent className='flex flex-col flex-1 justify-between'>
           <div>
-            <p className='text-muted-foreground mb-6'>{impact.description}</p>
+            <p className='text-muted-foreground mb-6 text-justify'>{impact.description}</p>
           </div>
 
           <div className='space-y-4 mt-auto'>
@@ -162,7 +188,7 @@ export function ImpactCard({ id, dictionary }: ImpactCardProps) {
               <div
                 key={key}
                 className='flex items-center gap-2'>
-                <div className='text-2xl font-bold text-primary'>
+                <div className='text-lg font-bold text-primary'>
                   {typeof value === 'string' && value.includes('+')
                     ? mounted && (
                         <CountUp
