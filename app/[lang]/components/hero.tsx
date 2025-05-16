@@ -73,7 +73,14 @@ export function Hero({ dictionary }: { dictionary: Awaited<ReturnType<typeof get
     e.preventDefault();
     const element = document.getElementById('about');
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const headerOffset = 80; // Adjust this value based on your header height
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
     }
   };
 
@@ -142,7 +149,7 @@ export function Hero({ dictionary }: { dictionary: Awaited<ReturnType<typeof get
           asChild
           size='lg'
           variant='default'
-          className='flex-1 bg-primary'>
+          className='flex-1 bg-primary min-h-10'>
           <Link
             onClick={handleClick}
             href='#about'
@@ -154,7 +161,7 @@ export function Hero({ dictionary }: { dictionary: Awaited<ReturnType<typeof get
           asChild
           size='lg'
           variant='default'
-          className='flex-1 bg-primary'>
+          className='flex-1 bg-primary min-h-10'>
           <Link
             href='#impact'
             className='font-semibold'>
