@@ -20,19 +20,19 @@ export function ReferenceCard({ id, dictionary }: ReferenceCardProps) {
       transition={{ duration: 0.5 }}>
       <Card className='min-h-full justify-between flex hover:shadow-lg transition-shadow'>
         <CardContent className='p-6'>
-          <div className='flex items-start gap-4 min-h-full justify-between flex-col'>
-            <div className='mt-1'>
+          <div className='flex items-start gap-4 min-h-full flex-col justify-between'>
+            <div className='flex items-start gap-2'>
               <ScrollText className='h-6 w-6 text-primary' />
-            </div>
-            <div className='space-y-4 min-h-full justify-between flex flex-col'>
               <p className='text-sm font-medium text-foreground/80'>{reference.by_name}</p>
-              <hr />
-              <p
-                className='text-muted-foreground italic'
-                dangerouslySetInnerHTML={{ __html: reference.text }}
-              />
-              <p className='text-sm font-medium text-foreground/80'>- {reference.by_title}</p>
             </div>
+            <hr />
+            <p
+              className='text-muted-foreground italic text-justify'
+              dangerouslySetInnerHTML={{ __html: reference.text }}
+            />
+            <p className='text-sm font-medium text-foreground/80 text-right'>
+              - {reference.by_title}
+            </p>
           </div>
         </CardContent>
       </Card>
