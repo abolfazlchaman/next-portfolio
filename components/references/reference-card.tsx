@@ -31,7 +31,7 @@ export function ReferenceCard({ id, dictionary }: ReferenceCardProps) {
                 className='text-muted-foreground italic'
                 dangerouslySetInnerHTML={{ __html: reference.text }}
               />
-              <p className='text-sm font-medium text-foreground/80'>— {reference.by_title}</p>
+              <p className='text-sm font-medium text-foreground/80'>- {reference.by_title}</p>
             </div>
           </div>
         </CardContent>
