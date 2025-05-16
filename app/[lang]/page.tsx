@@ -72,7 +72,7 @@ export default async function IndexPage(props: { params: Promise<{ lang: Locale 
           fullName={fullName}
           theme={dictionary.theme}
         />
-        <div className='container md:px-40 xl:px-60 px-10 min-w-full'>
+        <div className='container md:px-22 lg:px-36 xl:px-52 px-10 min-w-full'>
           <section
             id='hero'
             aria-label='Main hero section'>
