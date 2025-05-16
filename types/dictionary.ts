@@ -34,6 +34,7 @@ export interface Dictionary {
   };
   impact: {
     title: string;
+    sources: string;
     filter: {
       all: string;
       opensource: string;

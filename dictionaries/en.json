@@ -168,6 +168,7 @@
   },
   "impact": {
     "title": "My Impact",
+    "sources": "Sources:",
     "filter": {
       "all": "All",
       "opensource": "Open Source",
@@ -177,32 +178,32 @@
     },
     "react-global": {
       "title": "React at Global Scale",
-      "description": "Contributed to the React library at Meta, impacting 82.95% of global usage across 44 million+ websites.",
+      "description": "Contributed to the React library at Meta, impacting 82.95% of global websites across 44 million+ use cases.",
       "stats": {
-        "sites": "44,078,284+ sites",
-        "popularity": "82.95% global usage"
+        "sites": "44,078,284+ use cases",
+        "popularity": "82.95% global websites"
       }
     },
     "airbnb-standards": {
-      "title": "Airbnb JavaScript Standards",
-      "description": "Helped revise Airbnb's JavaScript/React/CSS style guide used by 140K+ devs. Shaped formatting and best practices.",
+      "title": "Airbnb Industry Standards",
+      "description": "Helped revise Airbnb's JavaScript/React/CSS style guide used by 147K+ engineers. Shaped a world wide industry standard for formatting and best practices.",
       "stats": {
-        "devs": "140,000+ developers",
+        "devs": "147,000+ developers",
         "companyValue": "$80.34B Airbnb valuation"
       }
     },
     "coinlens": {
       "title": "Crypto Intelligence Engine",
-      "description": "Built Coinlens, analyzing 23,000+ cryptocurrencies. Delivered dynamic investment insights under 0.74s.",
+      "description": "Built Coinlens, analyzing 23,000+ cryptocurrencies. Delivered dynamic investment insights under 0.74s world wide.",
       "stats": {
         "coins": "23,000+ assets tracked",
-        "speed": "0.74s insight delivery",
+        "speed": "0.74s accurate insight delivery",
         "market": "$2T crypto market context"
       }
     },
     "digimenu": {
-      "title": "Restaurant SuperApp",
-      "description": "Led creation of Digimenu. Served 2,800+ users daily and cut client costs by 40-60%.",
+      "title": "Restaurant Management SuperApp (DigiMenu)",
+      "description": "Led the creation of Digimenu. Serving 2,800+ users daily and cutting client costs from various industries mainly food/services by 40-60%.",
       "stats": {
         "users": "2,800+ daily users",
         "savings": "40–60% client cost reduction"
@@ -213,14 +214,14 @@
       "description": "Worked with over 30 successful teams across startups and multibillion-dollar companies like Meta and Airbnb. Known for engineering excellence, team communication, and scalable solutions delivery.",
       "stats": {
         "teams": "30+ high-performing teams",
-        "companies": "Startups to $80B+ giants"
+        "companies": "Startups to $80B giants"
       }
     },
     "user-impact": {
-      "title": "Users First, Always",
-      "description": "Built and maintained products that serve 140,000+ users, with a focus on scalability, accessibility, and performance. Designed systems that are not just used — they're relied on.",
+      "title": "Products that are not just used but Relied on",
+      "description": "Built and maintained products that in totality, serve 150,000+ users, with a focus on scalability, accessibility, and performance. Designed systems that are not just used — they're relied on.",
       "stats": {
-        "users": "140,000+ total users",
+        "users": "150,000+ total users",
         "mission": "Scalable, accessible software"
       }
     }
