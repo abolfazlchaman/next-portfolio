@@ -2,10 +2,12 @@
   "language": "fa",
   "developerInfo": {
     "fullName": "ابوالفضل چمن",
+    "slogan": "اپلیکیشن‌هایی که نه فقط برای استفاده، بلکه اتکا ساخته شده‌اند.",
     "profession": "توسعه‌دهنده وب، مهندس نرم افزار و مشاور متخصص",
     "experience": "۵+ سال تجربه",
     "location": "شیراز، ایران",
-    "CTAButtonText": "بیشتر راجب من بدانید"
+    "aboutCTA": "مشاهده رزومه",
+    "impactCTA": "مشاهده دستاوردها"
   },
   "celebrations": {
     "birthday": {
@@ -65,7 +67,7 @@
     "skills": "مهارت‌ها",
     "projects": "پروژه‌ها",
     "inspirations": "الهام‌ها",
-    "impact": "تأثیر من",
+    "impact": "دستاوردها",
     "endorsements": "توصیه‌نامه‌ها",
     "toggle_menu": "منو"
   },
@@ -160,6 +162,7 @@
   },
   "impact": {
     "title": "دستاوردها",
+    "subtitle": "برخی از مشارکت‌هایی که افتخار همکاری در آن‌ها را داشته‌ام.",
     "sources": "منابع:",
     "filter": {
       "all": "همه",

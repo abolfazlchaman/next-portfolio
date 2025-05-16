@@ -2,10 +2,12 @@
   "language": "en",
   "developerInfo": {
     "fullName": "Abolfazl chaman",
+    "slogan": "Applications to rely on, not just to use.",
     "profession": "Expert Web Developer, Software Engineer & Consultant",
     "experience": "5+ years of experience",
     "location": "Shiraz, Iran",
-    "CTAButtonText": "Let's Talk Business"
+    "aboutCTA": "View Resume",
+    "impactCTA": "See Impact"
   },
   "celebrations": {
     "birthday": {
@@ -168,6 +170,7 @@
   },
   "impact": {
     "title": "My Impact",
+    "subtitle": "Here are some of the contributions I'm proud to have been part of.",
     "sources": "Sources:",
     "filter": {
       "all": "All",

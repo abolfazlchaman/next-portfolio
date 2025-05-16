@@ -8,10 +8,12 @@ export interface Dictionary {
   language: string;
   developerInfo: {
     fullName: string;
+    slogan: string;
     profession: string;
     experience: string;
     location: string;
-    CTAButtonText: string;
+    aboutCTA: string;
+    impactCTA: string;
   };
   celebrations: {
     birthday: {
@@ -34,6 +36,7 @@ export interface Dictionary {
   };
   impact: {
     title: string;
+    subtitle: string;
     sources: string;
     filter: {
       all: string;
