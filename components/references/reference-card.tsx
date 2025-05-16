@@ -25,14 +25,13 @@ export function ReferenceCard({ id, dictionary }: ReferenceCardProps) {
               <ScrollText className='h-6 w-6 text-primary' />
               <p className='text-sm font-medium text-foreground/80'>{reference.by_name}</p>
             </div>
-            <hr />
-            <p
+            <q
               className='text-muted-foreground italic text-justify'
               dangerouslySetInnerHTML={{ __html: reference.text }}
             />
-            <p className='text-sm font-medium text-foreground/80 text-right'>
-              - {reference.by_title}
-            </p>
+            <div className='text-sm font-medium text-foreground/80 text-right'>
+              <hr className='my-2 text-foreground w-full' />- {reference.by_title}
+            </div>
           </div>
         </CardContent>
       </Card>
