@@ -15,7 +15,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faAirbnb, faMeta } from '@fortawesome/free-brands-svg-icons';
 
-type ImpactId = Exclude<keyof Dictionary['impact'], 'title' | 'filter'>;
+type ImpactId = Exclude<keyof Dictionary['impact'], 'title' | 'filter' | 'subtitle' | 'sources'>;
 
 interface ImpactCardProps {
   id: ImpactId;
@@ -64,7 +64,6 @@ const sourceLinks: Record<ImpactId, { label: string; url: string }[]> = {
       url: 'https://www.canva.com/design/DAGlPFpIzXE/YbsJ7SQxp1lziZM7JTuJ6A/edit?utm_content=DAGlPFpIzXE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton',
     },
   ],
-  'sources': [],
 };
 
 // Persian to English number mapping
@@ -102,7 +101,6 @@ const impactIcons: Record<ImpactId, any> = {
   'digimenu': faUtensils,
   'teams-impact': faUpRightAndDownLeftFromCenter,
   'user-impact': faRankingStar,
-  'sources': null,
 };
 
 export function ImpactCard({ id, dictionary }: ImpactCardProps) {

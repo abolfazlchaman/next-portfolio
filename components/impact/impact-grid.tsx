@@ -12,7 +12,7 @@ interface ImpactGridProps {
   isLoading: boolean;
 }
 
-type ImpactId = Exclude<keyof Dictionary['impact'], 'title' | 'filter' | 'subtitle'>;
+type ImpactId = Exclude<keyof Dictionary['impact'], 'title' | 'filter' | 'subtitle' | 'sources'>;
 
 type ImpactItem = {
   id: ImpactId;
