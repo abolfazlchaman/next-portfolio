@@ -73,7 +73,7 @@ export function Hero({ dictionary }: { dictionary: Awaited<ReturnType<typeof get
     e.preventDefault();
     const element = document.getElementById('about');
     if (element) {
-      const headerOffset = 80; // Adjust this value based on your header height
+      const headerOffset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
