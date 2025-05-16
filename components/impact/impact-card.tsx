@@ -14,6 +14,7 @@ import {
   faRankingStar,
 } from '@fortawesome/free-solid-svg-icons';
 import { faAirbnb, faMeta } from '@fortawesome/free-brands-svg-icons';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 type ImpactId = Exclude<keyof Dictionary['impact'], 'title' | 'filter' | 'subtitle' | 'sources'>;
 
@@ -94,7 +95,7 @@ const englishToPersian: Record<string, string> = {
   '9': '۹',
 };
 
-const impactIcons: Record<ImpactId, any> = {
+const impactIcons: Record<ImpactId, IconDefinition> = {
   'react-global': faMeta,
   'airbnb-standards': faAirbnb,
   'coinlens': faBrain,
@@ -110,7 +111,6 @@ export function ImpactCard({ id, dictionary }: ImpactCardProps) {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [hasAnimated, setHasAnimated] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const [key, setKey] = useState(0);
 
   useEffect(() => {
     setMounted(true);
@@ -123,7 +123,6 @@ export function ImpactCard({ id, dictionary }: ImpactCardProps) {
   }, [isInView, hasAnimated]);
 
   useEffect(() => {
-    setKey((prev) => prev + 1);
     setHasAnimated(false);
   }, [id]);
 
