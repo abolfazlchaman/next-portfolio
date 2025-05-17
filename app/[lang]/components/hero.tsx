@@ -144,6 +144,9 @@ export function Hero({ dictionary }: { dictionary: Awaited<ReturnType<typeof get
           );
         })}
       </div>
+      <p className='text-muted-foreground mt-4 w-full justify-center items-center text-center'>
+        {experience}
+      </p>
       <div className='flex flex-col sm:flex-row gap-4 w-full my-4'>
         <Button
           asChild
@@ -170,7 +173,6 @@ export function Hero({ dictionary }: { dictionary: Awaited<ReturnType<typeof get
         </Button>
       </div>
       <div className='w-full space-y-2 flex flex-col justify-center items-center text-center'>
-        <p className='text-muted-foreground w-full '>{experience}</p>
         {celebration && (
           <div className='mt-6 p-4 rounded-2xl border shadow-md bg-background text-foreground max-w-md'>
             <h3 className='text-2xl font-bold mb-2'>

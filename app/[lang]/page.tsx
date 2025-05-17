@@ -32,8 +32,6 @@ export default async function IndexPage(props: { params: Promise<{ lang: Locale 
     sameAs: [
       'https://www.linkedin.com/in/abolfazlchaman',
       'https://www.github.com/abolfazlchaman',
-      'https://t.me/+989027001688',
-      'https://t.me/+989352121688',
       'https://wa.me/+989027001688',
       'https://wa.me/+989352121688',
       'mailto:contact@abolfazlchaman.com',
