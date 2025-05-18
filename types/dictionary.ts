@@ -15,6 +15,13 @@ export interface Dictionary {
     aboutCTA: string;
     impactCTA: string;
   };
+  about: {
+    title: string;
+    description: string;
+    buttonTextEn: string;
+    buttonTextFa: string;
+    buttonTextDe: string;
+  };
   celebrations: {
     birthday: {
       title: string;

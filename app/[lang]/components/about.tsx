@@ -11,7 +11,7 @@ export function About({
   dictionary: Awaited<ReturnType<typeof getDictionary>>['about'];
   language: Awaited<ReturnType<typeof getDictionary>>['language'];
 }) {
-  const { title, description, buttonTextEn, buttonTextFa } = dictionary;
+  const { title, description, buttonTextEn, buttonTextFa, buttonTextDe } = dictionary;
   return (
     <section className='container min-h-[calc(80vh-64px)] w-full flex lg:flex-row flex-col-reverse items-stretch justify-between mt-24 gap-12'>
       {/* TEXT BLOCK */}
@@ -48,6 +48,21 @@ export function About({
                 target='_blank'
                 rel='noopener noreferrer'>
                 {buttonTextFa}
+                <FaExternalLinkAlt className='mr-2 h-4 w-4' />
+              </Link>
+            </Button>
+          )}
+
+          {language === 'en' && (
+            <Button
+              size='lg'
+              className='w-full'
+              asChild>
+              <Link
+                href='https://www.canva.com/design/DAGnznLgugU/n9pUYeL_JCUP5V7asx4itg/edit?utm_content=DAGnznLgugU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton'
+                target='_blank'
+                rel='noopener noreferrer'>
+                {buttonTextDe}
                 <FaExternalLinkAlt className='mr-2 h-4 w-4' />
               </Link>
             </Button>
