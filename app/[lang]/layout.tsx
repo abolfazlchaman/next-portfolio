@@ -55,7 +55,7 @@ export async function generateMetadata(props: {
       siteName: isEnglish ? 'Abolfazl Chaman Portfolio' : 'پورتفولیوی ابوالفضل چمن',
       images: [
         {
-          url: 'https://www.abolfazlchaman.com/images/AbolfazlChamanFormal.jpg',
+          url: 'https://www.abolfazlchaman.com/images/cropped-AbolfazlChamanFormalUpscaled.webp',
           alt: isEnglish
             ? 'Abolfazl Chaman - Web Developer, Software Engineer and Software Consultant'
             : 'ابوالفضل چمن - توسعه‌دهنده، وب مهندس نرم‌افزار و مشاور نرم‌افزار',
@@ -70,7 +70,7 @@ export async function generateMetadata(props: {
       description: isEnglish
         ? "Discover the portfolio of Abolfazl Chaman, a seasoned Web Developer and Software Engineer with over 5 years of experience delivering high-performance, scalable web applications. Specializing in React, Next.js, TypeScript, and modern full-stack web and software development. Check out my resume and let's discuss how I can help improve your team or project output."
         : 'پورتفولیوی ابوالفضل چمن، توسعه‌دهنده وب و مهندس نرم‌افزار با بیش از ۵ سال تجربه در ارائه اپلیکیشن‌های وب با عملکرد بالا و مقیاس‌پذیر. متخصص در ری‌اکت، نکست‌جی‌اس، تایپ‌اسکریپت و توسعه وب و نرم‌افزار فول‌استک مدرن. رزومه من را مشاهده کنید و با من در مورد بهبود عملکرد تیم یا خروجی پروژه خود ارتباط برقرار کنید.',
-      images: ['https://www.abolfazlchaman.com/images/AbolfazlChamanFormal.jpg'],
+      images: ['https://www.abolfazlchaman.com/images/cropped-AbolfazlChamanFormalUpscaled.webp'],
     },
     alternates: {
       canonical: isEnglish
@@ -94,30 +94,26 @@ export default async function Root(props: {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: isEnglish ? 'Abolfazl Chaman' : 'ابوالفضل چمن',
-    image: 'https://www.abolfazlchaman.com/images/AbolfazlChamanFormal.jpg',
+    image: 'https://www.abolfazlchaman.com/images/cropped-AbolfazlChamanFormalUpscaled.webp',
+    jobTitle: isEnglish
+      ? 'Expert Web Developer, Software Engineer & Consultant'
+      : 'توسعه‌دهنده وب، مهندس نرم افزار و مشاور متخصص',
     description: isEnglish
       ? "Discover the portfolio of Abolfazl Chaman, a seasoned Web Developer and Software Engineer with over 5 years of experience delivering high-performance, scalable web applications. Specializing in React, Next.js, TypeScript, and modern full-stack web and software development. Check out my resume and let's discuss how I can help improve your team or project output."
       : 'پورتفولیوی ابوالفضل چمن، توسعه‌دهنده وب و مهندس نرم‌افزار با بیش از ۵ سال تجربه در ارائه اپلیکیشن‌های وب با عملکرد بالا و مقیاس‌پذیر. متخصص در ری‌اکت، نکست‌جی‌اس، تایپ‌اسکریپت و توسعه وب و نرم‌افزار فول‌استک مدرن. رزومه من را مشاهده کنید و با من در مورد بهبود عملکرد تیم یا خروجی پروژه خود ارتباط برقرار کنید.',
     url: isEnglish ? 'https://www.abolfazlchaman.com/en' : 'https://www.abolfazlchaman.com/fa',
-    sameAs: [
-      'https://www.linkedin.com/in/abolfazlchaman',
-      'https://www.github.com/abolfazlchaman',
-      'mailto:contact@abolfazlchaman.com',
-      'mailto:info.abolfazlchaman@gmail.com',
-    ],
+    sameAs: ['https://www.linkedin.com/in/abolfazlchaman', 'https://www.github.com/abolfazlchaman'],
     worksFor: [
       {
         '@type': 'Organization',
         'name': 'Meta',
         'url': 'https://www.meta.com',
-        'jobTitle': 'Open Source Contributor',
         'sameAs': 'https://github.com/abolfazlchaman',
       },
       {
         '@type': 'Organization',
         'name': 'Airbnb',
         'url': 'https://www.airbnb.com',
-        'jobTitle': 'Open Source Contributor',
         'sameAs': 'https://github.com/abolfazlchaman',
       },
     ],
