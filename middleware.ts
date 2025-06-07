@@ -43,7 +43,8 @@ export function middleware (request: NextRequest) {
     pathname.startsWith('/apple-touch-icon.png') ||
     pathname === '/robots.txt' ||
     pathname === '/sitemap.xml' ||
-    pathname === '/security.txt'
+    pathname === '/security.txt' ||
+    pathname === '/llms.txt'
   ) {
     return NextResponse.next()
   }
@@ -80,6 +81,6 @@ export function middleware (request: NextRequest) {
 // Matcher: exclude static paths and already localized paths
 export const config = {
   matcher: [
-    '/((?!_next|fa|en|api|favicon.ico|fonts|images|robots.txt|sitemap.xml|security.txt).*)'
+    '/((?!_next|fa|en|api|favicon.ico|fonts|images|robots.txt|sitemap.xml|security.txt|llms.txt).*)'
   ]
 }
