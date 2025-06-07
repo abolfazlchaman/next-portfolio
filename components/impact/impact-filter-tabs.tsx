@@ -24,7 +24,7 @@ export function ImpactFilterTabs({
           key={category}
           onClick={() => onCategoryChange(category)}
           className={`
-            px-6 py-2 rounded-full text-sm font-medium transition-colors
+            px-6 py-2 rounded-full text-sm font-medium transition-colors cursor-pointer
             ${
               activeCategory === category
                 ? 'bg-primary text-primary-foreground'
