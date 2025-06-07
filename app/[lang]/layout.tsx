@@ -92,31 +92,75 @@ export default async function Root(props: {
   const isEnglish = params.lang === 'en';
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: isEnglish ? 'Abolfazl Chaman' : 'ابوالفضل چمن',
-    image: 'https://www.abolfazlchaman.com/images/cropped-AbolfazlChamanFormalUpscaled.webp',
-    jobTitle: isEnglish
-      ? 'Expert Web Developer, Software Engineer & Consultant'
-      : 'توسعه‌دهنده وب، مهندس نرم افزار و مشاور متخصص',
+    '@type': 'ProfilePage',
+    name: isEnglish ? 'Abolfazl Chaman - Portfolio' : 'ابوالفضل چمن - پورتفولیو',
     description: isEnglish
-      ? "Discover the portfolio of Abolfazl Chaman, a seasoned Web Developer and Software Engineer with over 5 years of experience delivering high-performance, scalable web applications. Specializing in React, Next.js, TypeScript, and modern full-stack web and software development. Check out my resume and let's discuss how I can help improve your team or project output."
-      : 'پورتفولیوی ابوالفضل چمن، توسعه‌دهنده وب و مهندس نرم‌افزار با بیش از ۵ سال تجربه در ارائه اپلیکیشن‌های وب با عملکرد بالا و مقیاس‌پذیر. متخصص در ری‌اکت، نکست‌جی‌اس، تایپ‌اسکریپت و توسعه وب و نرم‌افزار فول‌استک مدرن. رزومه من را مشاهده کنید و با من در مورد بهبود عملکرد تیم یا خروجی پروژه خود ارتباط برقرار کنید.',
+      ? 'Professional portfolio of Abolfazl Chaman - Web Developer, Software Engineer & Consultant'
+      : 'پورتفولیوی حرفه‌ای ابوالفضل چمن - توسعه‌دهنده وب، مهندس نرم‌افزار و مشاور متخصص',
     url: isEnglish ? 'https://www.abolfazlchaman.com/en' : 'https://www.abolfazlchaman.com/fa',
-    sameAs: ['https://www.linkedin.com/in/abolfazlchaman', 'https://www.github.com/abolfazlchaman'],
-    worksFor: [
-      {
-        '@type': 'Organization',
-        'name': 'Meta',
-        'url': 'https://www.meta.com',
-        'sameAs': 'https://github.com/abolfazlchaman',
-      },
-      {
-        '@type': 'Organization',
-        'name': 'Airbnb',
-        'url': 'https://www.airbnb.com',
-        'sameAs': 'https://github.com/abolfazlchaman',
-      },
-    ],
+    mainEntity: {
+      '@type': 'Person',
+      name: isEnglish ? 'Abolfazl Chaman' : 'ابوالفضل چمن',
+      image: 'https://www.abolfazlchaman.com/images/cropped-AbolfazlChamanFormalUpscaled.webp',
+      jobTitle: isEnglish
+        ? 'Expert Web Developer, Software Engineer & Consultant'
+        : 'توسعه‌دهنده وب، مهندس نرم افزار و مشاور متخصص',
+      description: isEnglish
+        ? "Discover the portfolio of Abolfazl Chaman, a seasoned Web Developer and Software Engineer with over 5 years of experience delivering high-performance, scalable web applications. Specializing in React, Next.js, TypeScript, and modern full-stack web and software development. Check out my resume and let's discuss how I can help improve your team or project output."
+        : 'پورتفولیوی ابوالفضل چمن، توسعه‌دهنده وب و مهندس نرم‌افزار با بیش از ۵ سال تجربه در ارائه اپلیکیشن‌های وب با عملکرد بالا و مقیاس‌پذیر. متخصص در ری‌اکت، نکست‌جی‌اس، تایپ‌اسکریپت و توسعه وب و نرم‌افزار فول‌استک مدرن. رزومه من را مشاهده کنید و با من در مورد بهبود عملکرد تیم یا خروجی پروژه خود ارتباط برقرار کنید.',
+      url: isEnglish ? 'https://www.abolfazlchaman.com/en' : 'https://www.abolfazlchaman.com/fa',
+      sameAs: [
+        'https://www.linkedin.com/in/abolfazlchaman',
+        'https://www.github.com/abolfazlchaman',
+      ],
+      knowsLanguage: [
+        {
+          '@type': 'Language',
+          name: 'Persian',
+          alternateName: 'Farsi',
+          identifier: 'fa',
+          inLanguage: 'fa',
+        },
+        {
+          '@type': 'Language',
+          name: 'English',
+          identifier: 'en',
+          inLanguage: 'en',
+        },
+        {
+          '@type': 'Language',
+          name: 'German',
+          identifier: 'de',
+          inLanguage: 'de',
+        },
+        {
+          '@type': 'Language',
+          name: 'Arabic',
+          identifier: 'ar',
+          inLanguage: 'ar',
+        },
+        {
+          '@type': 'Language',
+          name: 'Russian',
+          identifier: 'ru',
+          inLanguage: 'ru',
+        },
+      ],
+      'affiliation': [
+        {
+          '@type': 'Organization',
+          'name': 'Meta (React Contributor)',
+          'url': 'https://react.dev',
+          'sameAs': 'https://github.com/facebook/react',
+        },
+        {
+          '@type': 'Organization',
+          'name': 'Airbnb (JavaScript Style Guide Contributor)',
+          'url': 'https://github.com/airbnb/javascript',
+          'sameAs': 'https://github.com/airbnb/javascript',
+        },
+      ],
+    },
   };
 
   return (
