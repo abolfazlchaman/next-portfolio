@@ -13,10 +13,15 @@ import { getDictionary } from '@/get-dictionary';
 import { NavLinksType } from '@/types/types';
 import { Button } from '@/components/ui/button';
 import { SiMainwp } from 'react-icons/si';
+import { Badge } from '@/components/ui/badge';
+import { FileText } from 'lucide-react';
+import { BarChart3 } from 'lucide-react';
+
+const BADGE_STYLES = 'text-[10px] px-1 py-0 h-4 opacity-80 z-0 whitespace-nowrap';
 
 const getNavigationItems = (dict: NavLinksType) => [
   { label: dict.home, icon: SiMainwp, id: 'hero' },
-  { label: dict.impact, icon: SiMainwp, id: 'impact' },
+  { label: dict.impact, icon: BarChart3, id: 'impact' },
   { label: dict.about, icon: FaInfo, id: 'about' },
   { label: dict.skills, icon: FaGear, id: 'skills' },
   { label: dict.projects, icon: FaTools, id: 'projects' },
@@ -88,12 +93,38 @@ export function Navigation({
               <ScrollLink
                 key={item.id}
                 id={item.id}>
-                <div className='flex items-center text-md font-light transition-colors text-foreground cursor-pointer hover:text-muted-foreground'>
+                <div className='flex items-center text-md font-light transition-colors text-foreground cursor-pointer hover:text-muted-foreground relative whitespace-nowrap'>
                   {/* <item.icon className="mr-2 h-4 w-4 rtl:ml-2 rtl:mr-0" /> */}
-                  {item.label}
+                  <span className='relative z-10'>{item.label}</span>
+                  {item.id === 'impact' && (
+                    <Badge
+                      variant='secondary'
+                      className={`absolute -top-2 -right-2 ${BADGE_STYLES}`}>
+                      {dictionary.trending}
+                    </Badge>
+                  )}
+                  {item.id === 'projects' && (
+                    <Badge
+                      variant='secondary'
+                      className={`absolute -top-2 -right-2 ${BADGE_STYLES}`}>
+                      {dictionary.just_updated}
+                    </Badge>
+                  )}
                 </div>
               </ScrollLink>
             ))}
+            <Link
+              href='/llms.txt'
+              className='flex items-center gap-2 relative'>
+              <div className='flex items-center text-md font-light transition-colors text-foreground cursor-pointer hover:text-muted-foreground z-20'>
+                llms.txt
+              </div>
+              <Badge
+                variant='secondary'
+                className={`absolute -top-2 -right-2 ${BADGE_STYLES}`}>
+                {dictionary.new}
+              </Badge>
+            </Link>
           </div>
         </div>
 
@@ -140,12 +171,40 @@ export function Navigation({
                 key={item.id}
                 id={item.id}
                 onClick={() => setIsOpen(false)}>
-                <div className='flex items-center text-lg font-medium text-foreground transition-colors hover:text-primary cursor-pointer'>
-                  <item.icon className='mr-2 h-5 w-5 rtl:ml-2 rtl:mr-0' />
-                  {item.label}
+                <div className='flex items-center text-lg font-medium text-foreground transition-colors hover:text-primary cursor-pointer gap-2 whitespace-nowrap'>
+                  <item.icon className='h-5 w-5 mx-0' />
+                  <span className='relative z-10'>{item.label}</span>
+                  {item.id === 'impact' && (
+                    <Badge
+                      variant='secondary'
+                      className={BADGE_STYLES}>
+                      {dictionary.trending}
+                    </Badge>
+                  )}
+                  {item.id === 'projects' && (
+                    <Badge
+                      variant='secondary'
+                      className={BADGE_STYLES}>
+                      {dictionary.just_updated}
+                    </Badge>
+                  )}
                 </div>
               </ScrollLink>
             ))}
+            <Link
+              href='/llms.txt'
+              className='flex items-center gap-2 relative'
+              onClick={() => setIsOpen(false)}>
+              <div className='flex items-center text-lg font-medium text-foreground transition-colors hover:text-primary cursor-pointer gap-2'>
+                <FileText className='h-5 w-5 mx-0' />
+                llms.txt
+                <Badge
+                  variant='secondary'
+                  className={`${BADGE_STYLES} mx-2`}>
+                  {dictionary.new}
+                </Badge>
+              </div>
+            </Link>
             <div className='flex items-center gap-4 border-t pt-6'>
               <ThemeToggler dictionary={theme} />
               <LanguageSelector />
