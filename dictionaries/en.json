@@ -64,7 +64,10 @@
     "inspirations": "Inspirations",
     "impact": "My Impact",
     "endorsements": "Endorsements",
-    "toggle_menu": "Toggle menu"
+    "toggle_menu": "Toggle menu",
+    "new": "New",
+    "trending": "Trending",
+    "just_updated": "Just Updated"
   },
   "footer": {
     "quote": "An idiot admires complexity, a genius admires simplicity",

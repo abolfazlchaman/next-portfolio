@@ -64,7 +64,10 @@
     "inspirations": "الهام‌ها",
     "impact": "دستاوردها",
     "endorsements": "توصیه‌نامه‌ها",
-    "toggle_menu": "منو"
+    "toggle_menu": "منو",
+    "new": "جدید",
+    "trending": "پربازدید",
+    "just_updated": "آپدیت شده"
   },
   "footer": {
     "quote": "یک احمق پیچیدگی را تحسین می کند، یک نابغه سادگی را",
