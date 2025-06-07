@@ -4,5 +4,5 @@ Disallow:
 
 Sitemap: https://www.abolfazlchaman.com/sitemap.xml
 
-# LLMs Guide
-llms: https://example.com/llms.txt
+# LLMs Guide: https://www.abolfazlchaman.com/llms.txt
+# llms: https://example.com/llms.txt
