@@ -16,6 +16,7 @@ import { SiMainwp } from 'react-icons/si';
 import { Badge } from '@/components/ui/badge';
 import { FileText } from 'lucide-react';
 import { BarChart3 } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const BADGE_STYLES = 'text-[10px] px-1 py-0 h-4 opacity-80 z-0 whitespace-nowrap';
 
@@ -160,62 +161,89 @@ export function Navigation({
       </div>
 
       {/* Mobile Navigation Overlay */}
-      <div
-        className={cn(
-          'fixed inset-0 z-40 h-screen w-full bg-background',
-          isOpen ? 'block' : 'hidden',
-        )}>
-        <div className='container h-full px-4 pt-10'>
-          <hr className='my-4' />
-          <nav className='flex flex-col space-y-6'>
-            {navigationItems.map((item) => (
-              <ScrollLink
-                key={item.id}
-                id={item.id}
-                onClick={() => setIsOpen(false)}>
-                <div className='flex items-center text-lg font-medium text-foreground transition-colors hover:text-primary cursor-pointer gap-2 whitespace-nowrap'>
-                  <item.icon className='h-5 w-5 mx-0' />
-                  <span className='relative z-10'>{item.label}</span>
-                  {item.id === 'impact' && (
-                    <Badge
-                      variant='secondary'
-                      className={BADGE_STYLES}>
-                      {dictionary.trending}
-                    </Badge>
-                  )}
-                  {item.id === 'projects' && (
-                    <Badge
-                      variant='secondary'
-                      className={BADGE_STYLES}>
-                      {dictionary.just_updated}
-                    </Badge>
-                  )}
-                </div>
-              </ScrollLink>
-            ))}
-            <Link
-              href='/llms.txt'
-              className='flex items-center gap-2 relative'
-              onClick={() => setIsOpen(false)}
-              target='_blank'
-              rel='noopener noreferrer'>
-              <div className='flex items-center text-lg font-medium text-foreground transition-colors hover:text-primary cursor-pointer gap-2'>
-                <FileText className='h-5 w-5 mx-0' />
-                llms.txt
-                <Badge
-                  variant='secondary'
-                  className={`${BADGE_STYLES} mx-2`}>
-                  {dictionary.new}
-                </Badge>
-              </div>
-            </Link>
-            <div className='flex items-center gap-4 border-t pt-6'>
-              <ThemeToggler dictionary={theme} />
-              <LanguageSelector />
-            </div>
-          </nav>
-        </div>
-      </div>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2, ease: 'easeInOut' }}
+            className={cn(
+              'fixed inset-0 z-40 h-screen w-full bg-background/98 backdrop-blur-sm',
+              isOpen ? 'block' : 'hidden',
+            )}>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.2, delay: 0.1 }}
+              className='container h-full px-4 pt-10'>
+              <hr className='my-4' />
+              <nav className='flex flex-col space-y-6'>
+                {navigationItems.map((item, index) => (
+                  <motion.div
+                    key={item.id}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.2, delay: 0.1 + index * 0.05 }}>
+                    <ScrollLink
+                      id={item.id}
+                      onClick={() => setIsOpen(false)}>
+                      <div className='flex items-center text-lg font-medium text-foreground transition-colors hover:text-primary cursor-pointer gap-2 whitespace-nowrap'>
+                        <item.icon className='h-5 w-5 mx-0' />
+                        <span className='relative z-10'>{item.label}</span>
+                        {item.id === 'impact' && (
+                          <Badge
+                            variant='secondary'
+                            className={BADGE_STYLES}>
+                            {dictionary.trending}
+                          </Badge>
+                        )}
+                        {item.id === 'projects' && (
+                          <Badge
+                            variant='secondary'
+                            className={BADGE_STYLES}>
+                            {dictionary.just_updated}
+                          </Badge>
+                        )}
+                      </div>
+                    </ScrollLink>
+                  </motion.div>
+                ))}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.2, delay: 0.1 + navigationItems.length * 0.05 }}>
+                  <Link
+                    href='/llms.txt'
+                    className='flex items-center gap-2 relative'
+                    onClick={() => setIsOpen(false)}
+                    target='_blank'
+                    rel='noopener noreferrer'>
+                    <div className='flex items-center text-lg font-medium text-foreground transition-colors hover:text-primary cursor-pointer gap-2'>
+                      <FileText className='h-5 w-5 mx-0' />
+                      llms.txt
+                      <Badge
+                        variant='secondary'
+                        className={`${BADGE_STYLES} mx-2`}>
+                        {dictionary.new}
+                      </Badge>
+                    </div>
+                  </Link>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.2, delay: 0.1 + (navigationItems.length + 1) * 0.05 }}
+                  className='flex items-center gap-4 border-t pt-6'>
+                  <ThemeToggler dictionary={theme} />
+                  <LanguageSelector />
+                </motion.div>
+              </nav>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
