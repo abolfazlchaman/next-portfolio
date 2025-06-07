@@ -7,4 +7,3 @@ Sitemap: https://www.abolfazlchaman.com/sitemap.xml
 # LLMs Guide: https://www.abolfazlchaman.com/llms.txt
 # llms: https://example.com/llms.txt
 # Llm: https://example.com/llms.txt
-Llm: https://www.abolfazlchaman.com/llms.txt
