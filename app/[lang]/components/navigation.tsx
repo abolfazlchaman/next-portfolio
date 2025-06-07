@@ -115,7 +115,9 @@ export function Navigation({
             ))}
             <Link
               href='/llms.txt'
-              className='flex items-center gap-2 relative'>
+              className='flex items-center gap-2 relative'
+              target='_blank'
+              rel='noopener noreferrer'>
               <div className='flex items-center text-md font-light transition-colors text-foreground cursor-pointer hover:text-muted-foreground z-20'>
                 llms.txt
               </div>
@@ -194,7 +196,9 @@ export function Navigation({
             <Link
               href='/llms.txt'
               className='flex items-center gap-2 relative'
-              onClick={() => setIsOpen(false)}>
+              onClick={() => setIsOpen(false)}
+              target='_blank'
+              rel='noopener noreferrer'>
               <div className='flex items-center text-lg font-medium text-foreground transition-colors hover:text-primary cursor-pointer gap-2'>
                 <FileText className='h-5 w-5 mx-0' />
                 llms.txt
