@@ -133,13 +133,6 @@ export default async function Root(props: {
       dir={isRtl ? 'rtl' : 'ltr'}
       suppressHydrationWarning>
       <Head>
-        {/* jsonLd */}
-        <script
-          type='application/ld+json'
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
-          }}
-        />
         {/* llms.txt */}
         <link
           rel='llms'
@@ -187,6 +180,13 @@ export default async function Root(props: {
         />
       </Head>
       <body>
+        {/* jsonLd */}
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
+          }}
+        />
         <ThemeProvider
           attribute='class'
           defaultTheme='system'
