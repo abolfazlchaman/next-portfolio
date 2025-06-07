@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { getDictionary } from '../../get-dictionary';
 import { Locale } from '../../i18n-config';
 import { About } from './components/about';
