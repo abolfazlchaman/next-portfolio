@@ -57,74 +57,72 @@ export default async function IndexPage(props: { params: Promise<{ lang: Locale 
   };
 
   return (
-    <>
-      <Head>
-        <script
-          type='application/ld+json'
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </Head>
-      <main>
-        <Navigation
-          dictionary={dictionary.navigation}
-          fullName={fullName}
-          theme={dictionary.theme}
-        />
-        <div className='container md:px-22 lg:px-36 xl:px-52 px-10 min-w-full'>
-          <section
-            id='hero'
-            aria-label='Main hero section'>
-            <Hero dictionary={dictionary} />
-          </section>
-          <section
-            id='impact'
-            aria-label='Impact section'>
-            <Impact dictionary={dictionary} />
-          </section>
-          <section
-            id='about'
-            aria-label='About Abolfazl Chaman section'>
-            <About
-              dictionary={dictionary.about}
-              language={lang}
-            />
-          </section>
-          <section
-            id='skills'
-            className='scroll-mt-20'>
-            <Skills
-              skillsTitles={dictionary.skills}
-              softSkills={dictionary.softSkills}
-              languages={dictionary.languages}
-            />
-          </section>
-          <section
-            id='projects'
-            className='scroll-mt-20'>
-            <Projects projects={dictionary.projects} />
-          </section>
-          <section
-            id='endorsements'
-            className='scroll-mt-20'
-            aria-label='Endorsements section'>
-            <ReferenceSection dictionary={dictionary} />
-          </section>
-          <section
-            id='inspiration'
-            className='scroll-mt-20'>
-            <Inspirations
-              inspiration={dictionary.inspiration}
-              quotes={dictionary.quotes}
-            />
-          </section>
-        </div>
-        <Footer
-          language={lang}
-          footer={dictionary.footer}
-          fullName={fullName}
-          socialLinks={dictionary.socialLinks}
-        />
-      </main>
-    </>
+    <main>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
+      <Navigation
+        dictionary={dictionary.navigation}
+        fullName={fullName}
+        theme={dictionary.theme}
+      />
+      <div className='container md:px-22 lg:px-36 xl:px-52 px-10 min-w-full'>
+        <section
+          id='hero'
+          aria-label='Main hero section'>
+          <Hero dictionary={dictionary} />
+        </section>
+        <section
+          id='impact'
+          aria-label='Impact section'>
+          <Impact dictionary={dictionary} />
+        </section>
+        <section
+          id='about'
+          aria-label='About Abolfazl Chaman section'>
+          <About
+            dictionary={dictionary.about}
+            language={lang}
+          />
+        </section>
+        <section
+          id='skills'
+          className='scroll-mt-20'>
+          <Skills
+            skillsTitles={dictionary.skills}
+            softSkills={dictionary.softSkills}
+            languages={dictionary.languages}
+          />
+        </section>
+        <section
+          id='projects'
+          className='scroll-mt-20'>
+          <Projects projects={dictionary.projects} />
+        </section>
+        <section
+          id='endorsements'
+          className='scroll-mt-20'
+          aria-label='Endorsements section'>
+          <ReferenceSection dictionary={dictionary} />
+        </section>
+        <section
+          id='inspiration'
+          className='scroll-mt-20'>
+          <Inspirations
+            inspiration={dictionary.inspiration}
+            quotes={dictionary.quotes}
+          />
+        </section>
+      </div>
+      <Footer
+        language={lang}
+        footer={dictionary.footer}
+        fullName={fullName}
+        socialLinks={dictionary.socialLinks}
+      />
+    </main>
   );
 }
