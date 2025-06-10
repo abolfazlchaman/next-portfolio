@@ -130,6 +130,20 @@
     "subtitle": "این یک فهرست کامل نیست بلکه گزیده‌ای از پروژه‌هایی است که در آن‌ها همکاری داشته‌ام.",
     "projectsData": [
       {
+        "title": "GymRealPlus",
+        "description": "یک وب‌سایت حرفه‌ای و دو زبانه برای باشگاه ورزشی با قابلیت های برنامه کلاس‌ها، پروفایل مربیان، فروش مکمل‌ها و گالری استودیو. ساخته شده با تکنولوژی‌های مدرن وب و بهینه‌سازی شده برای عملکرد بهتر.",
+        "link": "https://www.gymrealplus.ir",
+        "image": "/images/gymrealplus.png",
+        "technologies": [
+          "Next.js",
+          "TypeScript",
+          "Tailwind CSS",
+          "DaisyUI",
+          "i18n",
+          "React Server Components"
+        ]
+      },
+      {
         "title": "Digimenu",
         "description": "دیجیتال منو منیجر با قابلیت های متعدد ویرایش قیمت،تصویر ،حذف، اضافه کردن دسته بندی و آیتم ها.",
         "link": "https://www.mydigimenu.online/fa",

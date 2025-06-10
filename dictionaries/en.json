@@ -138,6 +138,20 @@
     "subtitle": "This is not a complete list but rather a selection of projects I have worked on.",
     "projectsData": [
       {
+        "title": "GymRealPlus",
+        "description": "A polished, bilingual fitness studio website featuring membership information, class schedules, trainer profiles, supplement sales, and studio gallery. Built with modern web technologies and optimized for performance.",
+        "link": "https://www.gymrealplus.ir/en",
+        "image": "/images/gymrealplusEN.png",
+        "technologies": [
+          "Next.js",
+          "TypeScript",
+          "Tailwind CSS",
+          "DaisyUI",
+          "i18n",
+          "React Server Components"
+        ]
+      },
+      {
         "title": "Digimenu",
         "description": "Digital menu manager with various features like price editing, image changes, deletion, adding categories and items.",
         "link": "https://www.mydigimenu.online",
